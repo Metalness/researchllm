@@ -1,0 +1,467 @@
+{
+  "problem": "A farm must protect crops from a fast-evolving pest so that no single control method stops working within a few seasons, without constantly adding new chemicals.",
+  "struct": {
+    "problem": "Maintain effective crop protection against a rapidly adapting pest population over multiple growing seasons without relying on any single control approach that can be defeated by pest adaptation.",
+    "constraints": "Pest populations evolve resistance quickly, environmental and regulatory limits restrict chemical inputs, control methods interact with each other and with farm operations, timing of interventions must align with pest life cycles and crop growth stages, and resources (labor, cost, equipment) are limited.",
+    "required_capabilities": [
+      "apply multiple independent control pressures whose combined effect suppresses pest adaptation",
+      "adjust the intensity and timing of each control pressure based on observed pest population changes",
+      "maintain protection effectiveness even when individual control pressures lose potency",
+      "coordinate control actions across space and time to match pest movement and crop vulnerability",
+      "minimize reliance on any single chemical or method to prevent rapid resistance evolution"
+    ]
+  },
+  "arms": {
+    "C": {
+      "queries": [
+        "overall",
+        "capability 1: apply multiple independent control pressures whose combined effect sup",
+        "capability 2: adjust the intensity and timing of each control pressure based on obse",
+        "capability 3: maintain protection effectiveness even when individual control pressur",
+        "capability 4: coordinate control actions across space and time to match pest movemen",
+        "capability 5: minimize reliance on any single chemical or method to prevent rapid re"
+      ],
+      "retrieved": [
+        {
+          "id": "M01",
+          "patent_id": "patent:7101407",
+          "domain": "Patent: Chemistry and metallurgy (C11)",
+          "score": 0.6536415219306946,
+          "matched": "overall",
+          "problem": "Protecting sulfur dyes from degradation caused by oxidation during bleaching or other chemical exposure.",
+          "constraint": "The protective interaction must not interfere with the dye's intended colorfastness or application properties while maintaining bleach stability.",
+          "mechanism": "A substance forms a protective layer through chemical or physical interaction with target molecules, creating a barrier that blocks reactive agents from directly attacking the molecules while preserving their functional properties."
+        },
+        {
+          "id": "M02",
+          "patent_id": "patent:7947626",
+          "domain": "Patent: Chemistry and metallurgy (C40)",
+          "score": 0.692351222038269,
+          "matched": "overall",
+          "problem": "Generating a functional neural network for toxin detection requires a sustainable supply of viable neural progenitor cells.",
+          "constraint": "Balancing cell viability and differentiation during repeated passaging to preserve network functionality without genetic drift or loss of responsiveness.",
+          "mechanism": "A biological culture maintenance process repeatedly transfers proliferating cells through a controlled environment to preserve their functional integration and prevent genetic drift, enabling scalable and stable network formation over time."
+        },
+        {
+          "id": "M03",
+          "patent_id": "patent:10108781",
+          "domain": "Patent: Physics (G16)",
+          "score": 0.7001439332962036,
+          "matched": "capability 2: adjust the intensity and timing of each control pressure based on obse",
+          "problem": "Managing analyte trend transitions and response rates in monitoring systems to balance stability and responsiveness under varying physiological states.",
+          "constraint": "Balancing the need for stable operation during change-resistant states with the requirement for timely responses to genuine analyte shifts, while accommodating user-defined preferences for response speed.",
+          "mechanism": "Dynamically adjusting transition thresholds between operational states based on a detected resistance-to-change condition, and enabling external input to modulate system response dynamics, thereby balancing stability and reactivity to environmental shifts."
+        },
+        {
+          "id": "M04",
+          "patent_id": "patent:9415586",
+          "domain": "Patent: Operations and transport (B41)",
+          "score": 0.6717300415039062,
+          "matched": "capability 4: coordinate control actions across space and time to match pest movemen",
+          "problem": "Inefficient or inconsistent raster line printing due to fixed nozzle row usage during bidirectional print head movement.",
+          "constraint": "Balancing print speed and quality by coordinating nozzle activation with print head movement direction to avoid misalignment or redundant passes.",
+          "mechanism": "Alternating between two output elements based on positional parity to synchronize activation timing with directional movement, ensuring alignment by selecting the element that precedes during motion."
+        },
+        {
+          "id": "M05",
+          "patent_id": "patent:11344756",
+          "domain": "Patent: Human necessities (A62)",
+          "score": 0.6720431447029114,
+          "matched": "overall",
+          "problem": "Protecting buildings from wildfire threats that simultaneously endanger both upper and lower structural regions.",
+          "constraint": "Coordinating deployment timing and coverage areas of the two systems to ensure no gaps in protection, while minimizing resource usage during non-emergency conditions.",
+          "mechanism": "Deploying two complementary protection systems simultaneously—one providing overhead shielding coverage and another providing targeted wetting of lower regions—to ensure continuous protection across both upper and lower structural areas while minimizing resource usage during non-emergency conditions."
+        },
+        {
+          "id": "M06",
+          "patent_id": "patent:7040055",
+          "domain": "Patent: Human necessities (A01)",
+          "score": 0.6744836568832397,
+          "matched": "capability 1: apply multiple independent control pressures whose combined effect sup",
+          "problem": "Controlling plant growth (reducing cell elongation) without chemical retardants by applying drought stress.",
+          "constraint": "Maintaining sufficient water availability to sustain plant viability while creating enough stress to inhibit excessive elongation.",
+          "mechanism": "Regulating fluid delivery through a stratified medium to induce controlled stress levels that modulate biological growth responses while maintaining viability thresholds."
+        },
+        {
+          "id": "M07",
+          "patent_id": "patent:12151988",
+          "domain": "Patent: Chemistry and metallurgy (C05)",
+          "score": 0.7427853345870972,
+          "matched": "capability 3: maintain protection effectiveness even when individual control pressur",
+          "problem": "Engineering bacteria to alter metabolic or regulatory functions for desired biochemical outcomes.",
+          "constraint": "Modifications must preserve essential cellular viability while selectively disabling non-critical regulatory regions.",
+          "mechanism": "Selective inactivation of regulatory control elements within a biological system disrupts feedback mechanisms, redirecting metabolic activity toward target biochemical pathways while preserving core viability functions."
+        },
+        {
+          "id": "M08",
+          "patent_id": "patent:6179213",
+          "domain": "Patent: Mechanical engineering, heating, weapons (F24)",
+          "score": 0.725217342376709,
+          "matched": "capability 2: adjust the intensity and timing of each control pressure based on obse",
+          "problem": "Providing adaptable timed control signals for diverse thermal/ventilation systems without custom hardware.",
+          "constraint": "Maintaining flexibility across varied system types while ensuring reliable cyclic operation through sensor-driven feedback.",
+          "mechanism": "Dynamically adjusting control timing parameters through programmable feedback-driven adjustments to duty cycles and activation patterns, enabling adaptation to varying system requirements."
+        },
+        {
+          "id": "M09",
+          "patent_id": "patent:9658624",
+          "domain": "Patent: Physics (G05)",
+          "score": 0.6970258951187134,
+          "matched": "capability 2: adjust the intensity and timing of each control pressure based on obse",
+          "problem": "Applying seed care products to agricultural seeds in quantities optimized for seed size to ensure efficacy without waste.",
+          "constraint": "Accurately correlating seed size to optimal dosage while maintaining scalability and consistency across varying seed batches and application equipment.",
+          "mechanism": "Determining a dosage amount based on a measured physical characteristic of a target item using a predefined mapping function, then scaling the application of a treatment substance proportionally to the determined dosage during processing."
+        },
+        {
+          "id": "M10",
+          "patent_id": "patent:3966551",
+          "domain": "Patent: Chemistry and metallurgy (C14)",
+          "score": 0.679516077041626,
+          "matched": "capability 1: apply multiple independent control pressures whose combined effect sup",
+          "problem": "Efficiently performing multiple sequential leather-processing steps (soaking, unhairing, opening, bating) in a single enzymatic bath without damaging hide structure or requiring amines.",
+          "constraint": "The enzymes must operate within non-overlapping pH ranges to avoid mutual inhibition, and the absence of amines prevents unwanted chemical interactions that could disrupt enzymatic efficacy or hide integrity.",
+          "mechanism": "Using multiple agents with non-overlapping operational ranges to execute sequential processes in a single environment, avoiding mutual inhibition and structural damage. The agents are selected such that their activity thresholds (e.g., pH ranges) prevent interference while enabling simultaneous or staged actions."
+        },
+        {
+          "id": "M11",
+          "patent_id": "patent:4904493",
+          "domain": "Patent: Human necessities (A21)",
+          "score": 0.6435937881469727,
+          "matched": "overall",
+          "problem": "Extending the shelf life of dough products to at least 12 months at ambient temperatures without compromising post-baking quality.",
+          "constraint": "Maintaining dough texture and palatability while achieving long-term stability through moisture and enzyme activity control.",
+          "mechanism": "Controlling water activity within a target range by using a substrate with reduced enzymatic activity, combined with controlled moisture content and hygroscopic agents to inhibit microbial growth and enzymatic degradation over extended periods."
+        },
+        {
+          "id": "M12",
+          "patent_id": "patent:5697437",
+          "domain": "Patent: Operations and transport (B09)",
+          "score": 0.6713651418685913,
+          "matched": "capability 1: apply multiple independent control pressures whose combined effect sup",
+          "problem": "Extracting subsurface contaminants without external energy input.",
+          "constraint": "Reliance on ambient environmental conditions (barometric pressure changes) to generate sufficient airflow for effective contaminant removal.",
+          "mechanism": "Harness ambient environmental pressure variations to cyclically actuate flow-control elements, generating directional airflow through a contaminated medium to drive contaminant transport to an external environment."
+        },
+        {
+          "id": "M13",
+          "patent_id": "patent:6844151",
+          "domain": "Patent: Chemistry and metallurgy (C12)",
+          "score": 0.7806570529937744,
+          "matched": "capability 5: minimize reliance on any single chemical or method to prevent rapid re",
+          "problem": "Creating nucleic acid arrays that remain functional under harsh conditions (low pH, nuclease degradation) while maintaining binding affinity.",
+          "constraint": "Balancing structural stability (acid/nuclease resistance) with retention of binding affinity for complementary nucleic acids.",
+          "mechanism": "Modify molecular structures through chemical substitution to enhance resistance to environmental stressors (e.g., pH, enzymatic degradation) while preserving functional interaction with complementary molecular targets."
+        },
+        {
+          "id": "M14",
+          "patent_id": "patent:9476180",
+          "domain": "Patent: Fixed constructions (E02)",
+          "score": 0.7056381702423096,
+          "matched": "capability 1: apply multiple independent control pressures whose combined effect sup",
+          "problem": "Suppressing minute vibrations in a hydraulic excavator control lever caused by opposing actuator forces.",
+          "constraint": "Maintaining precise pressure feedback and current modulation to ensure vibration suppression without compromising actuator responsiveness.",
+          "mechanism": "Asymmetrically modulating the response rates of opposing actuators in a control system to counteract oscillatory forces by selectively adjusting their activation timing or intensity, thereby suppressing induced vibrations without sacrificing dynamic responsiveness."
+        },
+        {
+          "id": "M15",
+          "patent_id": "patent:8969835",
+          "domain": "Patent: Mechanical engineering, heating, weapons (F17)",
+          "score": 0.7392739057540894,
+          "matched": "capability 3: maintain protection effectiveness even when individual control pressur",
+          "problem": "Need to control the supply of process gas to a processing location in a particle beam system.",
+          "constraint": "Balancing gas supply to meet processing requirements without over- or under-supply, ensuring stable operation.",
+          "mechanism": "Periodically switching a flow control element between open and closed states with an adjustable timing ratio to dynamically regulate the rate of fluid delivery to a target location."
+        },
+        {
+          "id": "M16",
+          "patent_id": "patent:5437992",
+          "domain": "Patent: Textiles and paper (D21)",
+          "score": 0.7315347194671631,
+          "matched": "capability 5: minimize reliance on any single chemical or method to prevent rapid re",
+          "problem": "Reducing the use of harsh chemicals in pulp bleaching while enhancing delignification and brightness.",
+          "constraint": "Ensuring enzyme stability and activity under high-temperature, alkaline conditions typical of industrial pulp processing.",
+          "mechanism": "Introducing a catalyst that remains active under harsh environmental conditions to pre-treat a substrate, thereby increasing accessibility of target substances to subsequent processing agents and reducing the required dosage of aggressive chemicals."
+        },
+        {
+          "id": "M17",
+          "patent_id": "patent:7836855",
+          "domain": "Patent: Human necessities (A01)",
+          "score": 0.7110637426376343,
+          "matched": "capability 4: coordinate control actions across space and time to match pest movemen",
+          "problem": "Automatically sorting animals based on measured criteria (e.g., weight, size) while minimizing stress and handling errors.",
+          "constraint": "The system must synchronize gate movements with animal behavior and sensor feedback to avoid bottlenecks or misrouting while maintaining throughput.",
+          "mechanism": "A controller synchronizes sequential actuation of multiple barriers based on real-time sensor inputs, using intermediate guidance elements to direct subjects toward designated pathways. Feedback-driven coordination minimizes misrouting and maintains throughput while reducing stress."
+        },
+        {
+          "id": "M18",
+          "patent_id": "patent:8110727",
+          "domain": "Patent: Chemistry and metallurgy (C12)",
+          "score": 0.7586567401885986,
+          "matched": "capability 5: minimize reliance on any single chemical or method to prevent rapid re",
+          "problem": "Developing crops with resistance to specific herbicides without cross-resistance or genetic instability.",
+          "constraint": "Ensuring the nucleic acids are derived from distinct genomes to prevent genetic incompatibility or unintended interactions.",
+          "mechanism": "Combining genetic elements from phylogenetically distinct sources to introduce a functional trait while avoiding cross-interference and maintaining stable expression through genetic isolation."
+        },
+        {
+          "id": "M19",
+          "patent_id": "patent:7681497",
+          "domain": "Patent: Operations and transport (B27)",
+          "score": 0.6891392469406128,
+          "matched": "capability 4: coordinate control actions across space and time to match pest movemen",
+          "problem": "Feeding and removing a board to/from a periodically operating press without mechanical interference during cyclic operations.",
+          "constraint": "Timing of feed and removal motions must be precisely coordinated with the press's periodic operation to avoid interference.",
+          "mechanism": "Coordinating feed and removal movements with the periodic operation of a press by staggering their timing to ensure non-overlapping actions, preventing mechanical interference."
+        },
+        {
+          "id": "M20",
+          "patent_id": "patent:11377786",
+          "domain": "Patent: Textiles and paper (D06)",
+          "score": 0.7589185237884521,
+          "matched": "capability 3: maintain protection effectiveness even when individual control pressur",
+          "problem": "Maintaining stable water-repellent and antibacterial functionality in sweat-absorptive fibers during repeated use and washing.",
+          "constraint": "Designing microcapsules that remain intact during fiber processing and use while allowing targeted release of functional agents.",
+          "mechanism": "Encapsulating functional agents within protective barriers to isolate them from environmental degradation during processing and use, while enabling triggered release through mechanical or chemical stimuli to sustain performance over repeated cycles."
+        }
+      ],
+      "solution": {
+        "judgments": [
+          {
+            "id": "M01",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M02",
+            "v": "n",
+            "std": false
+          },
+          {
+            "id": "M03",
+            "v": "s",
+            "std": false
+          },
+          {
+            "id": "M04",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M05",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M06",
+            "v": "s",
+            "std": false
+          },
+          {
+            "id": "M07",
+            "v": "s",
+            "std": false
+          },
+          {
+            "id": "M08",
+            "v": "s",
+            "std": false
+          },
+          {
+            "id": "M09",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M10",
+            "v": "s",
+            "std": false
+          },
+          {
+            "id": "M11",
+            "v": "n",
+            "std": false
+          },
+          {
+            "id": "M12",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M13",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M14",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M15",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M16",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M17",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M18",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M19",
+            "v": "m",
+            "std": false
+          },
+          {
+            "id": "M20",
+            "v": "m",
+            "std": false
+          }
+        ],
+        "solution_title": "Adaptive Multi-Pressure Pest Suppression System",
+        "core_idea": "Deploy multiple independent control pressures (biological, cultural, mechanical, chemical) whose combined effect suppresses pest adaptation, with dynamic adjustment of intensity and timing based on real-time pest monitoring, and graceful degradation when individual pressures lose potency.",
+        "parts": [
+          {
+            "component": "Pest Population Monitoring Network",
+            "role": "Tracks pest density, resistance markers, and spatial distribution across fields using traps, remote sensing, and predictive modeling",
+            "origin": "M03"
+          },
+          {
+            "component": "Control Pressure Scheduler",
+            "role": "Dynamically adjusts intensity and timing of each control pressure based on monitoring data and resistance-to-change conditions",
+            "origin": "M03"
+          },
+          {
+            "component": "Biological Control Agents",
+            "role": "Deploy beneficial insects, pathogens, and pheromones as independent control pressures",
+            "origin": "M06"
+          },
+          {
+            "component": "Cultural Practice Coordinator",
+            "role": "Sequences planting dates, crop rotations, and habitat manipulation to disrupt pest life cycles",
+            "origin": "M10"
+          },
+          {
+            "component": "Mechanical/Physical Controls",
+            "role": "Applies timed tillage, barriers, and mating disruption as spatially coordinated interventions",
+            "origin": "M17"
+          },
+          {
+            "component": "Chemical Control Module",
+            "role": "Applies reduced-risk pesticides only when thresholds exceeded, with rotation to prevent resistance",
+            "origin": "M16"
+          },
+          {
+            "component": "Pressure Redundancy Manager",
+            "role": "Maintains protection effectiveness by increasing other pressures when one loses potency",
+            "origin": "M07"
+          }
+        ],
+        "operating_sequence": [
+          "Monitor pest populations and resistance markers across all fields",
+          "Assess resistance-to-change conditions and pest trend transitions",
+          "Schedule control pressures with non-overlapping operational windows to avoid interference",
+          "Deploy biological agents timed to pest life cycle vulnerable stages",
+          "Coordinate mechanical controls spatially to match pest movement patterns",
+          "Apply chemical controls only above economic thresholds with rotation protocols",
+          "Continuously adjust intensity and timing of each pressure based on real-time feedback",
+          "When one pressure loses potency, increase others to maintain suppression"
+        ],
+        "borrowed_mechanisms": [
+          {
+            "id": "M03",
+            "principle": "Dynamically adjusting transition thresholds between operational states based on detected resistance-to-change condition",
+            "adaptation": "Adjust control pressure intensity and timing based on pest population resistance trends and change-resistant states",
+            "changes_design_how": "Replaces fixed-schedule interventions with adaptive thresholds that respond to pest adaptation signals"
+          },
+          {
+            "id": "M06",
+            "principle": "Regulating fluid delivery through stratified medium to induce controlled stress levels",
+            "adaptation": "Apply controlled abiotic stresses (drought, flooding) to crops to reduce pest habitat suitability while maintaining crop viability",
+            "changes_design_how": "Adds biological stress modulation as an independent control pressure that pests cannot easily adapt to"
+          },
+          {
+            "id": "M07",
+            "principle": "Selective inactivation of regulatory control elements to redirect activity toward target pathways",
+            "adaptation": "Use RNAi or gene drive systems to selectively disrupt pest regulatory genes, redirecting their biology away from pest fitness",
+            "changes_design_how": "Introduces genetic control pressure that targets pest-specific pathways without affecting crop or beneficial species"
+          },
+          {
+            "id": "M10",
+            "principle": "Using multiple agents with non-overlapping operational ranges to execute sequential processes without mutual inhibition",
+            "adaptation": "Deploy control methods with non-overlapping temporal or spatial windows to prevent interference while enabling staged actions",
+            "changes_design_how": "Ensures multiple control pressures can operate simultaneously without diminishing each other's effectiveness"
+          },
+          {
+            "id": "M17",
+            "principle": "Synchronizing sequential actuation of multiple barriers based on real-time sensor inputs",
+            "adaptation": "Coordinate mechanical control deployments across fields based on real-time pest movement and crop vulnerability data",
+            "changes_design_how": "Transforms static mechanical controls into dynamically coordinated spatial interventions"
+          }
+        ],
+        "failure_modes": [
+          {
+            "failure": "Pest develops resistance to biological control agent",
+            "response": "Pressure Redundancy Manager increases cultural and mechanical pressures while rotating to alternative biological agents"
+          },
+          {
+            "failure": "Monitoring system fails or provides inaccurate data",
+            "response": "Default to conservative threshold-based interventions using historical baselines and neighboring field data"
+          },
+          {
+            "failure": "Chemical control loses efficacy due to resistance",
+            "response": "Immediately reduce chemical reliance and amplify biological and cultural pressures to compensate"
+          },
+          {
+            "failure": "Adverse weather disrupts mechanical control timing",
+            "response": "Reschedule within optimal pest life cycle window and increase other pressure intensities to maintain suppression"
+          },
+          {
+            "failure": "One control pressure method becomes unavailable (supply chain)",
+            "response": "Reallocate resources to remaining pressures and adjust scheduling to maintain combined suppression effect"
+          }
+        ],
+        "novelty_claims": [
+          {
+            "claim": "Adaptive threshold-based scheduling of control pressures",
+            "differs_from_standard_design_by": "Standard IPM uses fixed thresholds and calendar-based schedules; this system dynamically adjusts thresholds based on real-time resistance-to-change detection"
+          },
+          {
+            "claim": "Non-overlapping operational windows for control methods",
+            "differs_from_standard_design_by": "Standard practices often apply controls simultaneously causing interference; this system sequences methods to avoid mutual inhibition like non-overlapping pH ranges in enzymatic processing"
+          },
+          {
+            "claim": "Biological stress modulation as independent control pressure",
+            "differs_from_standard_design_by": "Standard practices focus on direct pest targeting; this system induces controlled abiotic stress in crop environment to reduce pest habitat suitability while maintaining crop viability"
+          },
+          {
+            "claim": "Genetic pathway redirection for pest control",
+            "differs_from_standard_design_by": "Standard practices use broad-spectrum pesticides; this system selectively disrupts pest-specific regulatory genes to redirect biology away from pest fitness"
+          }
+        ],
+        "tests_that_would_show_this_is_wrong": [
+          "Monitor pest resistance evolution rate over 3+ seasons compared to single-method controls - if resistance evolves at similar rate, multi-pressure approach is failing",
+          "Measure control pressure interference by comparing combined effectiveness vs. sum of individual pressures - if combined effect is less than additive, non-overlapping windows are not working",
+          "Track system response time to pest population shifts - if adaptive scheduling fails to adjust within 2 generations, threshold adjustment mechanism is inadequate",
+          "Assess crop yield and pest damage across fields with different pressure combinations - if removing any single pressure causes collapse in suppression, redundancy management is failing",
+          "Compare resource efficiency (labor, cost) against conventional IPM - if costs exceed 2x without proportional pest control improvement, economic sustainability is compromised"
+        ],
+        "_invalid_ids": [],
+        "_unjudged_ids": []
+      }
+    }
+  },
+  "metrics": {
+    "retrieved_share": {
+      "C": 1.0
+    }
+  }
+}

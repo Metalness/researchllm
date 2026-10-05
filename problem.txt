@@ -1,0 +1,9 @@
+# One problem per line. No solutions in the text. Lines starting with # are ignored.
+A small autonomous robot must inspect the inside of long, narrow industrial pipes while the pipe is still in service. The interior may be dark, filled with dust or mist, contain standing liquid, and have reflective or featureless surfaces. It cannot use GPS, cannot keep a continuous wireless link, cannot stop for manual repositioning, and must return to its starting point even if one of its sensing methods stops working.
+A hospital emergency department faces unpredictable surges of patients and must keep waiting short during surges without paying for spare staff and space that sit idle most of the time.
+A small online marketplace needs buyers to trust sellers they have never met, without a central authority checking every seller and without making honest new sellers wait months to be trusted.
+A farm must protect crops from a fast-evolving pest so that no single control method stops working within a few seasons, without constantly adding new chemicals.
+A software team must detect that a large distributed system is failing in a new way it has never seen before, without knowing in advance what to look for.
+A building in a hot climate must stay comfortably cool through the day and night cycle without electricity and without any moving parts.
+A public archive must keep its records correct and readable for 100 years while the institutions, file formats and maintainers around it all change.
+A group of volunteers must coordinate a large cleanup across a wide area with no leader, no shared chat channel, and unreliable phone coverage.

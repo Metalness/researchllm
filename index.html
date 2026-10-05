@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-domain ideas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F6F8;--surface:#fff;--ink:#16191F;--mute:#6B7280;--line:#E2E5EA;--accent:#2B59E8;--ok:#1E8E5A;--bad:#C0392B;--soft:#EEF2FE}
+@media (prefers-color-scheme:dark){:root{--bg:#101216;--surface:#171A20;--ink:#E8EAEE;--mute:#8A92A0;--line:#262B33;--accent:#7C9BFF;--ok:#4CC38A;--bad:#FF7A6B;--soft:#1B2133}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Manrope,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:56px 20px 96px}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px;font-weight:700;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 28px}
+textarea{width:100%;min-height:130px;resize:vertical;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:inherit;font:inherit}
+textarea:focus,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar{display:flex;justify-content:space-between;align-items:center;margin:12px 0 40px;gap:12px}
+.hint{color:var(--mute);font-size:13px}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 20px;font:600 14px Manrope,sans-serif;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.steps{position:relative;margin:0;padding:0;list-style:none}
+.step{display:grid;grid-template-columns:28px 1fr;gap:14px;padding-bottom:26px;position:relative}
+.step:not(:last-child)::before{content:"";position:absolute;left:13px;top:30px;bottom:2px;width:2px;background:var(--line)}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);background:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--mute);z-index:1}
+.step.running .dot{border-color:var(--accent);color:var(--accent)}
+.step.running .dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);border-right-color:transparent;animation:spin .8s linear infinite;position:absolute}
+.step.running .dot span{opacity:0}
+.step.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.step.error .dot{background:var(--bad);border-color:var(--bad);color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.step.running .dot::after{animation:none}}
+.head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.head b{font-weight:600}
+.status{color:var(--mute);font-size:13px}
+.step.pending .head b{color:var(--mute)}
+.body{margin-top:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card+.card{margin-top:10px}
+.k{color:var(--mute);font-size:13px;margin:12px 0 2px}
+.k:first-child{margin-top:0}
+.mech{background:var(--soft);border-radius:8px;padding:12px 14px;margin:2px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px}
+ul.plain{margin:4px 0 0;padding-left:18px}
+pre{white-space:pre-wrap;margin:0;font:13px/1.55 ui-monospace,Menlo,monospace}
+.row{display:grid;grid-template-columns:28px 1fr 52px;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .r{color:var(--mute);font-size:13px}
+.row .t{min-width:0}
+.row .t small{display:block;color:var(--mute);font-size:12px}
+.row .s{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;font-size:13px}
+.bar2{height:3px;background:var(--line);border-radius:2px;margin-top:5px}
+.bar2 i{display:block;height:100%;background:var(--accent);border-radius:2px}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--mute);font-size:13px}
+.final{margin-top:36px;border-top:1px solid var(--line);padding-top:32px}
+.final h2{font-size:24px;line-height:1.25;margin:0 0 8px;letter-spacing:-.01em}
+.final h3{font-size:15px;margin:28px 0 8px}
+.core{font-size:17px;line-height:1.6}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--accent);margin-right:6px}
+.tag.ind{background:var(--bg);color:var(--mute);border:1px solid var(--line)}
+ol.seq{padding-left:20px;margin:4px 0}ol.seq li{margin:4px 0}
+.err{color:var(--bad);margin-top:16px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<main>
+  <h1>Cross-domain ideas</h1>
+  <p class="sub">Describe an engineering problem. It is reduced to a core mechanism, matched against patents from unrelated fields, and turned into a new solution.</p>
+
+  <textarea id="problem" placeholder="e.g. Detect early signs of bearing failure in factory motors before they cause downtime…"></textarea>
+  <div class="bar"><span class="hint">Two LLM calls, one embedding search.</span><button id="run">Generate idea</button></div>
+
+  <ol class="steps" id="steps"></ol>
+  <div class="err hidden" id="err"></div>
+  <section class="final hidden" id="final"></section>
+</main>
+
+<script>
+const STEPS = [
+  {id:"abstract",   title:"Abstract the problem",  run:"Extracting the core mechanism…",   done:"Mechanism extracted"},
+  {id:"embed",      title:"Embed the mechanism",   run:"Computing the vector embedding…",  done:"Embedding ready"},
+  {id:"retrieve",   title:"Find similar patents",  run:"Searching the patent index…",      done:null},
+  {id:"synthesize", title:"Synthesize a solution", run:"Writing the solution…",            done:"Solution ready"}
+];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const list = a => (a && a.length) ? `<ul class="plain">${a.map(x=>`<li>${esc(typeof x==="string"?x:JSON.stringify(x))}</li>`).join("")}</ul>` : "";
+const chips = a => `<div class="chips">${(Array.isArray(a)?a:[a]).map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div>`;
+
+function initSteps(){
+  $("#steps").innerHTML = STEPS.map((s,i)=>`
+    <li class="step pending" id="s-${s.id}">
+      <div class="dot"><span>${i+1}</span></div>
+      <div><div class="head"><b>${s.title}</b><span class="status">Waiting</span></div><div class="body"></div></div>
+    </li>`).join("");
+}
+function setStep(id, state, status, html){
+  const el = $("#s-"+id); el.className = "step "+state;
+  el.querySelector(".status").textContent = status;
+  if(html !== undefined) el.querySelector(".body").innerHTML = html;
+  if(state==="done") el.querySelector(".dot span").textContent = "✓";
+}
+
+const views = {
+  abstract: d => `<div class="card">
+    <div class="k">Problem</div>${esc(d.problem)}
+    <div class="k">Constraints</div>${esc(d.constraints)}
+    <div class="k">Required capabilities</div>${list(d.required_capabilities)}
+    <div class="k">Functional mechanism</div><div class="mech">${esc(d.mechanism)}</div>
+    <div class="k">Domain terms</div>${chips(d.residual_terms)}</div>`,
+  embed: d => `<div class="card"><div class="k">Text that was embedded</div><pre>${esc(d.representation)}</pre></div>
+    <details><summary>Model details</summary><div class="hint" style="margin-top:6px">${esc(d.model)} · ${d.dimension} dimensions</div></details>`,
+  retrieve: d => {
+    const max = Math.max(...d.map(x=>x.score), 0.0001);
+    return `<div class="card">${d.map(x=>`<div class="row">
+      <span class="r">${x.rank}</span>
+      <div class="t"><div>${esc(x.title || x.id)}</div><small>${esc(x.domain)}${x.domain&&x.id?" · ":""}${esc(x.id)}</small>
+      <div class="bar2"><i style="width:${Math.max(4,x.score/max*100)}%"></i></div></div>
+      <span class="s">${x.score.toFixed(3)}</span></div>`).join("")}</div>
+      <details><summary>Show mechanisms sent to the LLM</summary>${d.map(x=>`<div class="card"><b>${x.rank}. ${esc(x.title||x.id)}</b><div class="k">Mechanism</div>${esc(x.mechanism)}</div>`).join("")}</details>`;
+  }
+};
+
+function renderFinal(s){
+  const used = s.retrieval_used;
+  const infl = (s.retrieval_influence||[]).map(r=>`<div class="card">
+      <span class="tag">#${esc(r.source_rank)}</span><b>${esc(r.source_domain)}</b> <span class="hint">${esc(r.source_id)}</span>
+      <div class="k">Original principle</div>${esc(r.original_principle)}
+      <div class="k">Transferred as</div>${esc(r.transferred_principle)}
+      <div class="k">How it was adapted</div>${esc(r.domain_adaptation)}
+      <div class="k">Why it is causal</div>${esc(r.why_transfer_is_causal)}
+      <div class="k">Design change</div>${esc(r.material_design_change)}</div>`).join("");
+  const rej = (s.retrieved_mechanisms_rejected||[]).map(r=>`<li><b>#${esc(r.source_rank)}</b> ${esc(r.source_id)}: ${esc(r.reason)}</li>`).join("");
+  const arch = (s.architecture||[]).map(a=>`<div class="card"><span class="tag ${String(a.origin).startsWith("retrieved")?"":"ind"}">${esc(a.origin)}</span><b>${esc(a.component)}</b><div>${esc(a.role)}</div></div>`).join("");
+  const adds = (s.independent_engineering_additions||[]).map(a=>`<li><b>${esc(a.component)}</b>: ${esc(a.purpose)}</li>`).join("");
+  const fm = (s.failure_modes||[]).map(f=>`<li><b>${esc(f.failure)}</b>: ${esc(f.response)}</li>`).join("");
+  $("#final").innerHTML = `
+    <h2>${esc(s.solution_title)}</h2>
+    <p class="core">${esc(s.core_idea)}</p>
+    <h3>${used ? "What came from other domains" : "Retrieval did not help"}</h3>
+    ${used ? infl : '<div class="card">None of the retrieved mechanisms materially changed the design.</div>'}
+    ${rej ? `<details><summary>Rejected matches</summary><ul class="plain">${rej}</ul></details>` : ""}
+    <h3>Architecture</h3>${arch}
+    ${adds ? `<details><summary>Independent engineering additions</summary><ul class="plain">${adds}</ul></details>` : ""}
+    <h3>How it operates</h3><ol class="seq">${(s.operating_sequence||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+    ${fm ? `<h3>Failure modes</h3><ul class="plain">${fm}</ul>` : ""}
+    <h3>Why it is different</h3><p>${esc(s.why_this_is_different)}</p>
+    <h3>Prototype plan</h3>${list(s.prototype_plan)}
+    <h3>Tests that would prove it wrong</h3>${list(s.tests_that_would_show_this_is_wrong)}`;
+  $("#final").classList.remove("hidden");
+  $("#final").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function handle(evt, data){
+  if(evt==="step"){
+    const def = STEPS.find(s=>s.id===data.id);
+    if(data.status==="running") setStep(data.id,"running",def.run);
+    else{
+      let label = def.done;
+      if(data.id==="retrieve") label = `${data.data.length} patents found`;
+      setStep(data.id,"done",label,
+        data.id==="synthesize" ? "" : views[data.id](data.data));
+      if(data.id==="synthesize") renderFinal(data.data);
+    }
+  } else if(evt==="error"){
+    const running = document.querySelector(".step.running");
+    if(running) setStep(running.id.slice(2),"error","Failed");
+    $("#err").textContent = data.message; $("#err").classList.remove("hidden");
+  }
+}
+
+async function run(){
+  const problem = $("#problem").value.trim();
+  if(!problem) return;
+  $("#run").disabled = true; $("#err").classList.add("hidden"); $("#final").classList.add("hidden");
+  initSteps();
+  try{
+    const res = await fetch("/api/run",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({problem})});
+    const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
+    while(true){
+      const {value, done} = await reader.read(); if(done) break;
+      buf += dec.decode(value,{stream:true});
+      let i; while((i = buf.indexOf("\n\n")) >= 0){
+        const block = buf.slice(0,i); buf = buf.slice(i+2);
+        const evt = (block.match(/^event: (.*)$/m)||[])[1];
+        const data = (block.match(/^data: (.*)$/m)||[])[1];
+        if(evt && data) handle(evt, JSON.parse(data));
+      }
+    }
+  }catch(e){ handle("error",{message:"Could not reach the server: "+e.message}); }
+  $("#run").disabled = false;
+}
+$("#run").addEventListener("click", run);
+$("#problem").addEventListener("keydown", e=>{ if(e.key==="Enter" && (e.metaKey||e.ctrlKey)) run(); });
+</script>
+</body>
+</html>

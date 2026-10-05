@@ -1,0 +1,300 @@
+{
+  "external_problem": "A data center must detect the early onset of previously unseen hardware failures before they cause service outages. The failure signatures are unknown beforehand, normal workloads change continuously, and individual machines can behave differently even when healthy. The system must operate continuously across thousands of machines while keeping false alarms low.",
+  "problem_abstraction": {
+    "problem": "Detect the early onset of previously unseen hardware failures before they cause service outages, given unknown failure signatures, continuously changing normal workloads, and per-machine behavioral differences.",
+    "constraints": "Must operate continuously across thousands of machines; must keep false alarms low; must handle unknown failure signatures; must adapt to continuously changing normal workloads; must account for per-machine behavioral differences even when healthy.",
+    "required_capabilities": [
+      "Identify persistent deviations from an evolving pattern of normal behavior",
+      "Distinguish meaningful changes from ordinary variation",
+      "Detect emerging failures before they become catastrophic",
+      "Operate continuously across a large population of machines",
+      "Maintain low false alarm rates despite unknown failure modes",
+      "Adapt to continuously changing normal operating conditions",
+      "Account for per-machine behavioral differences when healthy"
+    ],
+    "mechanism": "Identify persistent deviations from an evolving pattern of normal behavior while distinguishing meaningful changes from ordinary variation, so that an emerging failure can be detected before it becomes catastrophic.",
+    "residual_terms": [
+      "data center",
+      "hardware failure detection",
+      "unknown failure signatures",
+      "continuous monitoring",
+      "false alarm minimization",
+      "per-machine behavioral variation",
+      "normal workload drift"
+    ]
+  },
+  "functional_mechanism": {
+    "mechanism": "Identify persistent deviations from an evolving pattern of normal behavior while distinguishing meaningful changes from ordinary variation, so that an emerging failure can be detected before it becomes catastrophic.",
+    "residual_terms": [
+      "data center",
+      "hardware failure detection",
+      "unknown failure signatures",
+      "continuous monitoring",
+      "false alarm minimization",
+      "per-machine behavioral variation",
+      "normal workload drift"
+    ]
+  },
+  "embedding_representation": "Functional mechanism: Identify persistent deviations from an evolving pattern of normal behavior while distinguishing meaningful changes from ordinary variation, so that an emerging failure can be detected before it becomes catastrophic.\nDomain-specific terms: ['data center', 'hardware failure detection', 'unknown failure signatures', 'continuous monitoring', 'false alarm minimization', 'per-machine behavioral variation', 'normal workload drift']",
+  "retrieval": [
+    {
+      "rank": 1,
+      "score": 0.8155510425567627,
+      "id": "patent:11550294",
+      "patent_id": "patent:11550294",
+      "domain": "Patent: Physics (G05)",
+      "title": "",
+      "problem": "Automatically identifying the root cause of thread errors in lathe machining without manual inspection or operator intervention.",
+      "constraint": "Accurately mapping dynamic error signatures to specific failure modes in real time while filtering out noise from normal operational variations.",
+      "mechanism": "A real-time monitoring system continuously collects operational parameters, generates a dynamic error signature from those parameters, and correlates the signature with predefined failure patterns to identify root causes without manual intervention.",
+      "residual_terms": "[\"operational parameters\", \"dynamic error signature\", \"predefined failure patterns\"]"
+    },
+    {
+      "rank": 2,
+      "score": 0.7287329435348511,
+      "id": "patent:5677677",
+      "patent_id": "patent:5677677",
+      "domain": "Patent: Mechanical engineering, heating, weapons (F25)",
+      "title": "",
+      "problem": "Detecting abnormal conditions in a chiller's evaporator unit under varying cooling loads without false alarms or missed faults.",
+      "constraint": "The alarm limit calculation must adapt quickly to load changes while avoiding sensitivity to transient fluctuations that could trigger false alarms.",
+      "mechanism": "A computational controller dynamically adjusts detection thresholds for operational parameters based on real-time load conditions, using feedback to distinguish between transient fluctuations and persistent anomalies to maintain accurate fault identification.",
+      "residual_terms": "[\"alarm limits\", \"cooling load\"]"
+    },
+    {
+      "rank": 3,
+      "score": 0.71512770652771,
+      "id": "patent:10614906",
+      "patent_id": "patent:10614906",
+      "domain": "Patent: Physics (G11)",
+      "title": "",
+      "problem": "Accurately assessing the true error rate of a memory array beyond the correction capability of an ECC engine during testing.",
+      "constraint": "The ECC engine's correction limit is a fixed, known value, so the subtraction must be based on this predefined threshold rather than dynamic error analysis.",
+      "mechanism": "A measurement system subtracts a predefined correction capacity from total detected errors to isolate residual failures beyond a known correction threshold, enabling assessment of inherent failure rates independent of correction masking.",
+      "residual_terms": "[\"correction capacity\", \"detected errors\", \"correction threshold\"]"
+    },
+    {
+      "rank": 4,
+      "score": 0.7148905396461487,
+      "id": "patent:8659431",
+      "patent_id": "patent:8659431",
+      "domain": "Patent: Physics (G07)",
+      "title": "",
+      "problem": "Ensuring compliance with security procedures by identifying potential violations among security personnel.",
+      "constraint": "Balancing automation accuracy to minimize false positives while maintaining real-time responsiveness.",
+      "mechanism": "Automated evaluation of stored data against predefined rules, followed by selective alerting of oversight entities when rule violations are identified.",
+      "residual_terms": "[\"automated evaluation\", \"predefined rules\", \"selective alerting\", \"rule violations\"]"
+    },
+    {
+      "rank": 5,
+      "score": 0.7127925157546997,
+      "id": "patent:5551485",
+      "patent_id": "patent:5551485",
+      "domain": "Patent: Textiles and paper (D03)",
+      "title": "",
+      "problem": "Distinguishing between a failing drop wire (due to wear) and a drop wire that has fallen due to slack or broken warp threads in an industrial loom.",
+      "constraint": "Ensuring the indicator persists post-restart to retain diagnostic information while avoiding false positives from transient circuit closures.",
+      "mechanism": "A circuit-forming connector engages with structural elements to detect a specific failure mode, activating a persistent indicator that retains diagnostic state after system restart.",
+      "residual_terms": "[\"warp bars\", \"indicator\"]"
+    },
+    {
+      "rank": 6,
+      "score": 0.7070758938789368,
+      "id": "patent:6275366",
+      "patent_id": "patent:6275366",
+      "domain": "Patent: Electricity (H02)",
+      "title": "",
+      "problem": "Restoring electrical power to users after an overcurrent fault in a distribution system without manual intervention.",
+      "constraint": "The system must respond selectively to faults while maintaining operational continuity for unaffected circuits.",
+      "mechanism": "Automatically detecting fault conditions and actuating a switching network to isolate the fault while maintaining operational continuity for unaffected circuits.",
+      "residual_terms": "[\"overcurrent\", \"switching network\"]"
+    },
+    {
+      "rank": 7,
+      "score": 0.7046955227851868,
+      "id": "patent:12156525",
+      "patent_id": "patent:12156525",
+      "domain": "Patent: Human necessities (A23)",
+      "title": "",
+      "problem": "Ensuring bulk fluid quality (e.g., milk) remains within safe parameters during storage or transport.",
+      "constraint": "The system must balance computational efficiency with accuracy in modeling complex environmental effects on fluid stability.",
+      "mechanism": "Real-time environmental data is continuously compared against a predictive degradation model to dynamically evaluate risk thresholds, enabling automated corrective actions when parameters exceed safe limits.",
+      "residual_terms": "[\"predictive degradation model\", \"risk thresholds\", \"corrective actions\"]"
+    },
+    {
+      "rank": 8,
+      "score": 0.7040857076644897,
+      "id": "patent:4199080",
+      "patent_id": "patent:4199080",
+      "domain": "Patent: Operations and transport (B03)",
+      "title": "",
+      "problem": "Detecting deviations in the operational ratio of key stations in a sand classifying tank over extended periods.",
+      "constraint": "The system must account for reblend cycles and long-term variability while maintaining sensitivity to meaningful deviations without false alarms.",
+      "mechanism": "Time-accumulating measurement devices track operational durations for multiple stations, and a comparison system evaluates these values against predefined tolerance thresholds to trigger corrective signals when deviations exceed acceptable limits.",
+      "residual_terms": "[\"time-accumulating measurement devices\", \"tolerance thresholds\", \"corrective signals\"]"
+    },
+    {
+      "rank": 9,
+      "score": 0.7025918960571289,
+      "id": "patent:8907695",
+      "patent_id": "patent:8907695",
+      "domain": "Patent: Physics (G09)",
+      "title": "",
+      "problem": "Detecting faults (opens, shorts, power sequence issues) in differential signal lines of a liquid crystal display module quickly and efficiently without manual intervention.",
+      "constraint": "Only one line is actively driven at a time, requiring precise control of signal states and feedback analysis to avoid interference between lines.",
+      "mechanism": "Sequentially activating individual signal paths while maintaining non-interfering states in other paths, then analyzing feedback signals across all paths to detect anomalies. This isolates each path for testing and uses feedback to infer faults.",
+      "residual_terms": "[\"differential signal lines\", \"high-impedance states\", \"feedback signals\"]"
+    },
+    {
+      "rank": 10,
+      "score": 0.6996660232543945,
+      "id": "patent:11975730",
+      "patent_id": "patent:11975730",
+      "domain": "Patent: Operations and transport (B60)",
+      "title": "",
+      "problem": "Preventing unintended vehicle acceleration caused by mistaken pedal operation (e.g., pressing the accelerator when intending to brake).",
+      "constraint": "The system must distinguish between legitimate rapid acceleration and mistaken operation using only pedal input dynamics, avoiding false positives that would impede normal driving while catching genuine mistakes.",
+      "mechanism": "Multi-dimensional threshold checking that correlates input dynamics (e.g., operation amount, operation speed, and temporal relationships) to distinguish between legitimate and anomalous input patterns. When all thresholds align to indicate an unintended operation, a corrective action (e.g., driving force limiting) is triggered to mitigate the anomaly.",
+      "residual_terms": "[\"threshold checking\", \"input dynamics\", \"temporal relationships\", \"corrective action\", \"anomalous input patterns\"]"
+    },
+    {
+      "rank": 11,
+      "score": 0.6904265284538269,
+      "id": "patent:12092269",
+      "patent_id": "patent:12092269",
+      "domain": "Patent: Mechanical engineering, heating, weapons (F17)",
+      "title": "",
+      "problem": "Detecting potential safety hazards in gas compressors within a networked system using heterogeneous data sources.",
+      "constraint": "Balancing the accuracy of hazard prediction with the integration of diverse, potentially inconsistent data sources from networked and reference devices.",
+      "mechanism": "Combining data from networked and reference sources to build a reference dataset of standardized patterns, then comparing real-time data against this dataset to identify deviations and predict hazards through a predictive model.",
+      "residual_terms": "[\"feature vector library\", \"model\"]"
+    },
+    {
+      "rank": 12,
+      "score": 0.6902519464492798,
+      "id": "patent:7595741",
+      "patent_id": "patent:7595741",
+      "domain": "Patent: Physics (G08)",
+      "title": "",
+      "problem": "Providing driving information to a vehicle driver without causing distraction or information overload from non-critical alerts",
+      "constraint": "Must accurately assess violation significance to avoid both missing critical alerts and overwhelming the driver with non-essential information",
+      "mechanism": "Comparing detected operational parameters against a reference set of rules, evaluating the importance of each detected deviation, and selectively presenting information only when the evaluated importance exceeds a threshold — using significance-based filtering to gate information delivery",
+      "residual_terms": "[\"traffic rule violations\", \"rule database\"]"
+    },
+    {
+      "rank": 13,
+      "score": 0.6824615597724915,
+      "id": "patent:5397083",
+      "patent_id": "patent:5397083",
+      "domain": "Patent: Operations and transport (B61)",
+      "title": "",
+      "problem": "Monitoring transverse inclination and extension limits between railroad rails and transmitting an indication when these limits are breached.",
+      "constraint": "The switches must be arranged in series so that any single breach interrupts the circuit, and the penetrable surface must allow sufficient movement to detect over-extension while remaining durable enough to avoid false triggers under normal rail vibrations.",
+      "mechanism": "A series of displacement sensors coupled between adjacent structural elements detect movement beyond predefined thresholds; when any sensor triggers, a series circuit breaks, activating a warning system to indicate limit breach.",
+      "residual_terms": "[\"displacement sensors\", \"series circuit\", \"predefined thresholds\"]"
+    },
+    {
+      "rank": 14,
+      "score": 0.6822642087936401,
+      "id": "patent:5953311",
+      "patent_id": "patent:5953311",
+      "domain": "Patent: Electricity (H04)",
+      "title": "",
+      "problem": "Accurately determining the boundaries of guard intervals in OFDM signals to synchronize FFT windows for signal reconstruction.",
+      "constraint": "The method must balance computational efficiency with sensitivity to dispersion changes, and the block displacement (n samples) must align with the expected guard interval length to avoid false peaks.",
+      "mechanism": "Analyzing temporal correlations between paired signal segments to identify statistical anomalies in variance patterns, which indicate boundary transitions in structured data streams through iterative comparison of dispersion metrics across successive blocks.",
+      "residual_terms": "[\"statistical dispersion\", \"difference signals\", \"F ratios\", \"variance patterns\"]"
+    },
+    {
+      "rank": 15,
+      "score": 0.6771730184555054,
+      "id": "patent:10831378",
+      "patent_id": "patent:10831378",
+      "domain": "Patent: Physics (G06)",
+      "title": "",
+      "problem": "Managing wear and extending lifespan of storage units in a dispersed storage network (DSN) while maintaining data accessibility.",
+      "constraint": "The selection process must balance wear leveling with performance requirements, ensuring data retrieval latency and reliability are not compromised by prioritizing less-worn units.",
+      "mechanism": "Continuously monitoring operational wear metrics across a distributed array of storage devices and dynamically prioritizing access to less-worn devices to distribute usage and prevent localized degradation of system reliability.",
+      "residual_terms": "[\"storage devices\", \"wear metrics\", \"distributed array\", \"system reliability\"]"
+    },
+    {
+      "rank": 16,
+      "score": 0.6765089631080627,
+      "id": "patent:12029331",
+      "patent_id": "patent:12029331",
+      "domain": "Patent: Human necessities (A47)",
+      "title": "",
+      "problem": "Prioritizing diagnostic events in a display case system to alert users effectively based on urgency.",
+      "constraint": "Requires real-time processing of diagnostics data and dynamic rank adjustment without overwhelming the user with notifications.",
+      "mechanism": "Prioritizing diagnostic events by their persistence duration, where longer-lasting events are promoted in priority to ensure critical issues are addressed first.",
+      "residual_terms": "[\"persistence duration\", \"priority ranking\"]"
+    },
+    {
+      "rank": 17,
+      "score": 0.6760184168815613,
+      "id": "patent:10964200",
+      "patent_id": "patent:10964200",
+      "domain": "Patent: Physics (G08)",
+      "title": "",
+      "problem": "Reducing costs of alarm systems while maintaining alarm functionality, without deploying dedicated alarm hardware or sensors.",
+      "constraint": "The detection signal must meet a specific first condition to trigger an alarm, requiring a balance between false alarms (triggering on transient network issues) and missed detections (failing to alarm on genuine problems).",
+      "mechanism": "Repurposing an existing operational status signal from a device as an alarm trigger input. The device's routine self-monitoring behavior generates a signal that is intercepted and evaluated against a defined condition. When the condition is met, an alarm operation is initiated, leveraging the device's inherent monitoring capability as a proxy for dedicated alarm hardware.",
+      "residual_terms": "[\"alarm trigger input\", \"defined condition\", \"alarm operation\"]"
+    },
+    {
+      "rank": 18,
+      "score": 0.6747470498085022,
+      "id": "patent:9601021",
+      "patent_id": "patent:9601021",
+      "domain": "Patent: Physics (G08)",
+      "title": "",
+      "problem": "Planned vehicle operations frequently deviate from actual execution, causing inefficiencies and crew disruptions.",
+      "constraint": "Balancing buffer size to avoid overcompensation while maintaining operational flexibility.",
+      "mechanism": "Analyzing historical deviations between planned and actual operations to dynamically adjust resource allocations in future plans, creating a feedback loop that aligns scheduling with real-world performance patterns.",
+      "residual_terms": "[\"buffer allocations\", \"scheduling\"]"
+    },
+    {
+      "rank": 19,
+      "score": 0.6744754314422607,
+      "id": "patent:8414378",
+      "patent_id": "patent:8414378",
+      "domain": "Patent: Physics (G07)",
+      "title": "",
+      "problem": "Providing progressive player incentives and engagement in a gaming machine through accumulated gameplay metrics, where different reward levels are triggered at different accumulation milestones.",
+      "constraint": "Balancing threshold values and associated payout values to maintain player engagement and perceived value without incurring excessive payout costs or making rewards too easy or too difficult to achieve.",
+      "mechanism": "Accumulating a metric over discrete events, and when the accumulated value crosses different threshold levels, triggering different associated responses. The accumulation continues past each threshold, enabling multiple tiers of response activation from a single running metric.",
+      "residual_terms": "[\"threshold levels\", \"accumulated value\", \"discrete events\"]"
+    },
+    {
+      "rank": 20,
+      "score": 0.6671794652938843,
+      "id": "patent:11050300",
+      "patent_id": "patent:11050300",
+      "domain": "Patent: Electricity (H02)",
+      "title": "",
+      "problem": "How to reliably detect foreign objects in wireless power transfer systems despite varying receiver characteristics that make universal detection thresholds unreliable.",
+      "constraint": "The detection must work across different receiver types and characteristics without interfering with normal power transfer operation.",
+      "mechanism": "Using a system's intrinsic operational characteristic as a calibrated reference baseline, communicated to a controller, which then compares the actual operating characteristic against this reference to detect anomalies. The system self-calibrates by reporting its own characteristic, allowing the controller to detect deviations caused by foreign objects regardless of the system's individual properties.",
+      "residual_terms": "[\"Q factor\", \"self-calibration\", \"foreign object detection\"]"
+    }
+  ],
+  "solution": {
+    "source_rank": 2,
+    "source_id": "patent:5677677",
+    "source_domain": "Patent: Mechanical engineering, heating, weapons (F25)",
+    "original_principle": "A computational controller dynamically adjusts detection thresholds for operational parameters based on real-time load conditions, using feedback to distinguish between transient fluctuations and persistent anomalies to maintain accurate fault identification.",
+    "transferred_principle": "Detection thresholds for hardware metric anomalies are dynamically adjusted based on the current workload context, with feedback mechanisms that distinguish transient fluctuations from persistent deviations.",
+    "domain_adaptation": "In the chiller domain, 'load conditions' map to 'workload context' in data centers (e.g., batch processing, idle, peak load). The controller's real-time load sensing becomes a lightweight workload classifier that adjusts anomaly score thresholds—widening them during volatile periods and tightening them during stable periods.",
+    "why_transfer_is_causal": "The causal chain is: varying operating conditions → adaptive threshold adjustment → reduced false alarms from transient variations while maintaining sensitivity to persistent anomalies. This directly maps to the data center constraint of continuously changing normal workloads causing ordinary variation that must not trigger false alarms.",
+    "material_design_change": "Replaces static, fleet-wide anomaly thresholds with per-machine, workload-context-aware dynamic thresholds. Each machine's detection sensitivity scales with its current operational volatility, so a CPU spike during batch processing is tolerated while the same spike during idle hours triggers scrutiny."
+  },
+  "meta": {
+    "llm_calls": 2,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_dimension": 1024,
+    "retrieval_index": "C:\\Users\\Yatharth\\Downloads\\researchllm\\phase2b_embeddings\\mechanism_residual.faiss",
+    "representation": "mechanism_residual",
+    "retrieval_k": 20,
+    "synthesis_k": 20
+  }
+}

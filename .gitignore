@@ -1,0 +1,9 @@
+# Environment variables
+.env
+.env.*
+
+# Zip and archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z

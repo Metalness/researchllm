@@ -1,0 +1,9 @@
+{
+  "mechanism": "Phase 1 functional mechanism only",
+  "problem_mechanism": "Problem + Phase 1 functional mechanism",
+  "problem_constraint_mechanism": "Problem + constraint + functional mechanism",
+  "raw_abstract": "Concrete mechanism + functional mechanism",
+  "problem_raw_abstract": "Problem + concrete mechanism + functional mechanism",
+  "full": "Problem + constraint + concrete mechanism + functional mechanism",
+  "mechanism_residual": "Functional mechanism + Phase 1 residual/domain-specific terms"
+}

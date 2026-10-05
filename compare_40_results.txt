@@ -1,0 +1,86 @@
+======================================================================
+Failed or unparseable calls: 0 of 60
+
+SAME 20 PAPERS, with a conclusion available:
+  abstract only        : 5/20 have a mechanism (25%)
+  abstract + conclusion: 7/20 have a mechanism (35%)
+  gained with conclusion: 2   lost: 0
+
+PAPERS WITHOUT a conclusion (20), abstract only:
+  5/20 have a mechanism (25%)
+
+NOTE: with ~20 papers per group, a difference of 1-3 papers is noise.
+Read the examples below; they matter more than the percentages.
+
+######################################################################
+GAINED with conclusion (A said no, B found a mechanism)
+######################################################################
+
+[Social Sciences] Humanitarian Disaster Response
+  A none: research synthesis analyzing political factors correlated with aid rejection; no process, feedback loop, causal mechanis
+
+[Social Sciences] Humanitarian Disaster Response
+  B mechanism: When a crisis exceeds an entity's internal capacity, it calculates a political cost: accepting external resources signals dependence and may undermine its standing with internal and external audiences. If the perceived cost of appearing dependent exceeds the cost of unmet needs, the entity refuses. Entities with moderate capacity — enough to project competence but insufficient to handle the crisis alone — face the strongest pressure to refuse. Entities already deeply enmeshed with external actors face lower refusal pressure because dependence is already established and the marginal political cost is negligible.
+
+[Arts and Humanities] Documentation, Analysis and Reconstruction of the Paleo-landuse of Wadi Musa with Special Reference 
+  A none: methodological paper describing GIS-based analytical approach for archaeological spatial analysis, no causal mechanism o
+
+[Arts and Humanities] Documentation, Analysis and Reconstruction of the Paleo-landuse of Wadi Musa with Special Reference 
+  B mechanism: A spatial analysis system integrates discrete structural records into a relational network, enabling the detection of recurring spatial patterns, functional zoning, and temporal sequences that reveal an underlying planning logic. By treating elements as interconnected nodes rather than isolated points, the method exposes how development follows envisioned extension and responds to external pressures.
+
+######################################################################
+LOST with conclusion (A found one, B did not)
+######################################################################
+
+######################################################################
+BOTH found one: does the conclusion change the wording?
+######################################################################
+
+[Engineering] Electronic structure of Li-intercalated oligopyridines: A comparative study by photoelectron spectro
+  A mechanism: When guest atoms enter the host, they donate charge to it, creating new occupied states at low binding energy. Heteroatoms embedded in the host generate additional gap states; in small hosts the heteroatom position controls the spacing of these states but not the total charge accepted, while in larger branched hosts the heteroatoms increase the total charge storage capacity. At high guest loading, the bonds between guest atoms and heteroatoms weaken relative to the heteroatom-free host, lowering the barrier for guest release.
+
+[Engineering] Electronic structure of Li-intercalated oligopyridines: A comparative study by photoelectron spectro
+  B mechanism: When guest species enter a branched molecular host, they donate charge to the host, triggering a structural rearrangement. The first guests bind strongly to specific heteroatom sites; additional guests bind more weakly to the delocalized electron system of the host. In larger branched hosts, heteroatoms multiply the number of strong binding sites, tripling the total capacity compared to heteroatom-free analogs. The weaker binding of later guests allows easier release, enabling reversibility at high loading.
+
+[Computer Science] IDENTIFYING SKYLINES IN CLOUD DATABASES WITH INCOMPLETE DATA
+  A mechanism: The approach coordinates the query across the distributed stores by letting each store filter its local records using the incomplete information it has, discarding items that cannot be optimal, and exchanging only the surviving candidates so that the total data moved stays small.
+
+[Computer Science] IDENTIFYING SKYLINES IN CLOUD DATABASES WITH INCOMPLETE DATA
+  B mechanism: Each source first sorts and filters its local data to keep only items that are not dominated by any other local item, drastically shrinking the set. These reduced local sets are then merged across sources, so only candidate items travel between nodes instead of the full raw data. This two-stage reduction keeps the number of comparisons and the volume of data transfer low even as the total data grows or the number of selection criteria increases.
+
+[Engineering] Development of a hat style recognition system based on image processing and machine learning
+  A mechanism: The outline is compressed into a sparse set of high-curvature points that capture its salient geometry. A new instance is classified by measuring the Hausdorff distance between its point set and each stored exemplar's point set, assigning the label of the closest match. The distance metric inherently handles partial occlusion and minor deformation because it only requires each point to find a nearby counterpart.
+
+[Engineering] Development of a hat style recognition system based on image processing and machine learning
+  B mechanism: Each stored exemplar is reduced to an ordered set of boundary points that capture high-curvature locations. A new instance is processed the same way. The two point sets are compared by a distance metric that measures the worst-case point-to-point mismatch; the exemplar with the smallest worst-case mismatch is taken as the match, and the class is decided by majority vote among the top-ranked exemplars.
+
+[Arts and Humanities] “With Clean Hearts and Pure Conscience”: CONSCIENCE IN THE CELEBRATION OF THE LITURGY
+  A mechanism: A repeated ritual sequence embeds explicit self-examination prompts at each threshold transition; passing each threshold requires the participant to perform the examination, creating a feedback loop where the ritual structure scaffolds the internal process, gradually aligning internal state with the ritual's prescribed path.
+
+[Arts and Humanities] “With Clean Hearts and Pure Conscience”: CONSCIENCE IN THE CELEBRATION OF THE LITURGY
+  B mechanism: A repeated ritual phrase acts as a timed cue at successive thresholds: first prompting private self-examination before entry, then requiring reconciliation with others, then enabling reception of a sacred gift, and finally facilitating union with the ultimate source. Each repetition reactivates an innate orientation toward the good, using the ritual structure to amplify that orientation step by step until the participant's internal state matches the demands of the encounter.
+
+[Medicine] Non-canonical Expression of Cardiac Troponin-T in Neuroendocrine Ethmoid Sinus Carcinoma Following I
+  A mechanism: A population of abnormal cells produces a signal molecule normally specific to a different tissue. When an external trigger activates a clearance or release process, the stored signal molecules enter the general circulation, mimicking the genuine condition. The trigger can be either direct attack on the cells causing rupture, or active packaging and export via transport vesicles.
+
+[Medicine] Non-canonical Expression of Cardiac Troponin-T in Neuroendocrine Ethmoid Sinus Carcinoma Following I
+  B mechanism: A cell population aberrantly produces proteins normally exclusive to a different tissue type. When these cells are attacked by an activating therapy or release membrane-bound vesicles, the foreign proteins enter the circulation, mimicking the signature of the target tissue's injury.
+
+######################################################################
+WITHOUT-conclusion papers that had a mechanism
+######################################################################
+
+[Engineering] IoT Data Access via Email System using POP3 Protocol
+  A mechanism: A central store accepts messages from any sender and holds them until a specific client connects. When the client connects, it pulls all waiting messages and, by default, removes them from the store, leaving the store empty for the next cycle. The client can optionally request that copies remain in the store.
+
+[Computer Science] SDGR-Net: A Spatiotemporally Decoupled Gated Residual Network for Robust Multi-State HDD Health Pred
+  A mechanism: Two isolated processing branches handle temporal evolution and cross-variable relationships separately, preventing representational interference. Each input sequence is run forward and backward then concatenated, preserving transient pre-failure patterns that appear only briefly. A dynamic gated fusion layer then acts as an adaptive bottleneck, weighting the two branches so that failure-critical features pass through while redundant noise is suppressed.
+
+[Social Sciences] Bypassing Developers: An Interview with Plan Común on Self-Commissioned Housing
+  A mechanism: The producers directly commission and finance the work, removing the intermediary layer. The margin normally absorbed by that layer is reallocated to expand common areas and other elements that do not generate direct returns, using a financing structure adapted from the intermediary's own model.
+
+[Medicine] Jatrorrhizine Exhibits an Antitumor Effect Against Gefitinib‐resistant Non‐small Cell Lung Cancer vi
+  A mechanism: A second agent binds directly to a kinase in that alternative pathway and blocks its catalytic activity, preventing the kinase from phosphorylating and activating its downstream target. With the signaling cascade interrupted at this node, the growth and survival signals are suppressed and the resistant population undergoes apoptosis.
+
+[Arts and Humanities] The Political Economy of the Contemporary Media and Cultural Production
+  A mechanism: A controlling group owns the means of producing both material resources and symbolic narratives. By directing the flow of narratives through communication channels, they install a unifying story that legitimizes the current hierarchy, making the arrangement appear natural and self-perpetuating. When the narrative-production apparatus fractures — generating contradictory or unauthorized stories — the legitimizing story loses coherence, creating openings for the subordinate population to challenge the hierarchy.

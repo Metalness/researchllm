@@ -1,0 +1,148 @@
+
+######################################################################
+WITH conclusion: 20 random papers (of 149 eligible)
+######################################################################
+
+[1] Social Sciences  |  Humanitarian Disaster Response
+    abstract  : Communities the world over continue to be alarmingly vulnerable to natural hazards, leading to no shortage of devastating consequences. Whether or not climate change brings forth an increasingly ferocious variety of hazards, actors involved in disaster response will still face a multiplicity of chal
+    conclusion: This analysis began with a review of previous research surrounding the politics of disaster response which yielded several insights. First and foremost is the reality that disasters are both inherently political and highly charged with potential political impacts. As such, states are deeply aware of
+
+[2] Computer Science  |  Improving Organization Performance Accountability Through Integrated Participatory Commitment
+    abstract  : Purpose: The study aims to analyze the influence integrated participatory commitment-based archiving on the accountability of archiving performance of Indonesian universities. Participatory commitment in the organization is lack of understanding, therefore examining factors to enhance organization p
+    conclusion: Archival policy and archivists' competence significantly impact archiving performance accountability through integrated participatory commitment by 81, 3% and 83,0%. The direct impacts are (1) archival policy has no effect on archiving performance accountability; (2) archival policy has a positive a
+
+[3] Engineering  |  Electronic structure of Li-intercalated oligopyridines: A comparative study by photoelectron spectro
+    abstract  : The role of nitrogen in the charge transfer and storage capacity of lithium-intercalated heterocyclic oligophenylenes was investigated using photoelectron spectroscopy. The development of new occupied states at low binding energies in the valence band region, as well as core level chemical shifts at
+    conclusion: The stepwise intercalation of lithium atoms in thin mo- lecular ﬁlms of biphenyl, selected bipyridine derivatives, and larger, branched oligomer analogs was performed in an ul- trahigh vacuum environment. A structural change from an aromatic to a quinoidal form upon intercalation was ob- served as e
+
+[4] Medicine  |  Impact of cold adaptation on cardiac tolerance to ischemia-reperfusion. Role of glucocorticoid and t
+    abstract  : We have established that the continuous cold exposure (CCE, 4°C, 4 weeks) causes cold adaptation, increases systolic blood pressure, exerts infarct-limiting effect during coronary artery occlusion (45 min) and reperfusion (2 h). The CCE increases adrenal weight, heart weight and triiodothyronine (T3
+    conclusion: Our data indicates that after CCE and LICE in rats actually formed adaptation to the cold as evident by the increase in brown fat weight and increased resistance to the effects of low temperature (–18°C). In animals after BICE we found no change of brown fat weight but increased tolerance to the imp
+
+[5] Social Sciences  |  Overcoming Adversity and Challenging Ethnocentric Perceptions: An Ethnographic Case Study of Traditi
+    abstract  : This article examines the fate of Malay traditional boats and their craftsmen in the face of adversity in the new millennium. The Malays have a rich history of boatmaking, dating back to the days of the imperial Han dynasty when Malay, Indonesian and Indian ships dominated the trade between India an
+    conclusion: This article aims to recognise the challenges faced by the local Malay craft of boat making, which serves as a poignant example of the gradual loss of an esteemed Malay cultural heritage rooted in indigenous wisdom. Extensive documentation exists to preserve and document various aspects of this craf
+
+[6] Computer Science  |  IDENTIFYING SKYLINES IN CLOUD DATABASES WITH INCOMPLETE DATA
+    abstract  : Skyline queries is a rich area of research in the database community.Due to its great benefits, it has been integrated into many database applications including but not limited to personalized recommendation, multi-objective, decision support and decision-making systems.Many variations of skyline te
+    conclusion: In this paper, the issue of processing skyline queries in incomplete cloud database have been discussed. A new skyline approach called ICS has been proposed to process skyline queries in incomplete cloud databases. The detail steps of each phase of ICS have been explained. We also described how the 
+
+[7] Arts and Humanities  |  Challenges concerning argumentative writing in a second language context
+    abstract  : The current study is based on parts of the data collected in a quasi-experiment conducted in four English classes of Norwegian upper secondary school students. The purpose of the quasi-experiment was to explore whether a teaching intervention based on systemic functional linguistics and genre-pedago
+    conclusion: This study has explored what problems Norwegian upper secondary school students face when meeting the demands of writing argumentative texts in English when transferring from lower to upper secondary school. The material collected in this study suggests that students struggle with structuring texts,
+
+[8] Arts and Humanities  |  Late Glacial palaeoenvironmental changes in the southern part of the Holy Cross Mountains based on t
+    abstract  : This paper presents the Late Glacial stage of the development of the Białe Ługi peatland in the southern Holy Cross Mountains, based on a comprehensive palaeoenvironmental data. A complex analysis of palynology, Cladocera, sed imentology, geochemistry and 14C dating were used. Organic deposition was
+    conclusion: Based on analyses of chemical composition, vegetation succession and subfossil Cladocera remains from the lake and peat sediments, a diagram of the Late Glacial evolution of the Białe Ługi peatland is presented (Fig. 8). Bottom sediments of the section B Ł 14D document de- velopment of a shallow bas
+
+[9] Arts and Humanities  |  Cultural Transitions and Pakistani Cinema: A Thematic Analysis
+    abstract  : This study examines the evolution of cultural expressions in Pakistani cinema from 1947 to 2024, analyzing how films reflect and influence societal transformations. Grounded in Media Representation Theory, the research investigates ten pivotal films per decade to trace shifts in gender roles, family
+    conclusion: The research demonstrate that Pakistani cinema creates an expressive means to interpret cultural developments in society. Given that the nation state still defines many of the most crucial aspects of cinematic possibilities through laws, markets, and infrastructures—not to mention social contexts—th
+
+[10] Medicine  |  Cutibacterium species: An Underestimated Pathogen in Chronic Infections
+    abstract  : Cutibacterium speciesis a member of the skin micro biota, found predominantly in regions rich in sebaceous glands, involved in various chronic infections that led to its emergence as an opportunistic pathogen. The present study is a retrospective study to determine the prevalence and antibiotic sens
+    conclusion: Further to conclude,infections caused by Cutibacterium persist asunnoticed entity due to various factors such as low virulence, slow-growing properties, extended period of infection and less of supportive markers to conclude clinical infection in a hospital setting. Additionally, clinical microbiolo
+
+[11] Social Sciences  |  Parental economic hardship and children's achievement orientations
+    abstract  : While children's orientations to achievement are strong predictors of attainments, little is known about how parental economic hardship during recessionary times influences children's orientations to their futures. The Youth Development Study has followed a community sample of young people in St Pau
+    conclusion: In probing the consequences of parental hardship for children in the aftermath of the current Great Recession, we find evidence that parents’ economic circumstances are reflected in children’s achievement orientations. Interestingly, however, we found onl y one significant main effect. Of 8 main eff
+
+[12] Computer Science  |  Students’ experiences of educational technology use to facilitate university learning: factors influ
+    abstract  : The ability to design effective technology-enhanced learning (TEL) experiences is a critical skill for university teachers. However, challenges endure on how best to develop university teachers in research-intensive universities to design TEL experiences that meet student, professional, and employer
+    conclusion: University students and teachers have different levels of TEL competencies and capabilities. This research reports that whilst some students have cohesive concep - tions of TEL and use educational technology effectively in their studies, others seek clearer guidance from their university teachers. H
+
+[13] Engineering  |  Development of a hat style recognition system based on image processing and machine learning
+    abstract  : The purpose of this paper is to investigate the recognition mechanism of hat styles and develop a corresponding hat style recognition system (HSRS). An image processing and machine learning integrated method (IPML) is proposed and validated for automatic hat style recognition. First, 4 kinds of hat 
+    conclusion: To achieve the automatic recognition of hat styles, an image processing and machine learning (IPML) inte - grated method is proposed. 4 kinds of hat styles with 800 pictures (borderless knitted hats, berets, top hats and peaked hats) are created as research samples, including 400 training sets and 4
+
+[14] Arts and Humanities  |  “With Clean Hearts and Pure Conscience”: CONSCIENCE IN THE CELEBRATION OF THE LITURGY
+    abstract  : “Clean heart and pure conscience,” is a recurring theme in the celebration of the Syro Malabar Qurbana of the Saint Thomas Christians of India. Liturgy, the school of Christian life and formation, illustrates the significance of the formation of conscience and character. The explicit usage of the te
+    conclusion: As we have seen, the phrase “clean heart and pure conscience” is used at different important moments of the Qurbana in order to prepare the congregation — to examine one’s conscience in order to enter the sanctuary, to restore reconciliation with the community, and to receive the Mysteries and to en
+
+[15] Arts and Humanities  |  Documentation, Analysis and Reconstruction of the Paleo-landuse of Wadi Musa with Special Reference 
+    abstract  : DOI:10.17014/ijog.8.3.427-441Archaeologists and historians throughout time have relied mainly on textual, architectural, and art-historical analyses to understand the historical context of civilizations. This traditional approach has been challenged, however, by the current new practices in archaeol
+    conclusion: In conclusion, this paper presents a clear evidence that scientific methods were followed in planning the different landuse units during the different occupation periods of the city of Wadi Musa. The historical struggle between the Naba- taeans and the Romans also was reflected in the landuse planni
+
+[16] Engineering  |  Digital Touch: Towards a Novel User-Experience Design Pedagogy
+    abstract  : HCI and Industrial Design are both disciplines that are currently experiencing radical transformation in terms of their identity and scope. HCI has moved beyond its origins in human factors and cognitive psychology towards the proactive and generative design of experience. Industrial Design has simi
+    conclusion: We have described how we moved ‘digital touch communication’ to the centre of a UX Design module and what happened pedagogically. We have shown how current pedagogical experiences with design ‘materials’ and rapid prototyping shaped design students’ engagement with the design of digital touch experi
+
+[17] Arts and Humanities  |  Characterization of residues found within some Roman unguentaria glass artefacts: preliminary result
+    abstract  : Despite the large number of unguentaria vessels generally discovered in Roman archeological sites, very little information is available concerning the nature and chemical composition of the products that were originally contained within these artifacts. In this study a combined non-destructive appro
+    conclusion: Using a combined non-invasive approach that included FTIR, Raman and XRF analysis, it was possible to characterize the remains found inside some glass unguentaria recovered from the Roman baths from Mălăiești that were still containing part of their original contents in the form of a brownish-black 
+
+[18] Medicine  |  Implementation of the Sustainable Food Garden Program (P2L) as an Effort to Accelerate the Reduction
+    abstract  : This study aims to determine the implementation of a sustainable food garden program as an effort to accelerate the reduction of stunting in Bone Regency. The research method used is descriptive qualitative research. This study focuses on policy implementation using Merilee S Grindle's theory. The d
+    conclusion: Based on the resu lts of researc h and discussion regarding the implementation of the sustainable food plots (P2L) program as an effort to accelerate the reduction of stunting in Bone Regency, with several sub-indicators it can be concluded that the implementation of sustain able food gard ens (P2L)
+
+[19] Medicine  |  Non-canonical Expression of Cardiac Troponin-T in Neuroendocrine Ethmoid Sinus Carcinoma Following I
+    abstract  : We describe the case of a patient with neuroendocrine ethmoid sinus carcinoma, who exhibited markedly elevated levels of serum cardiac troponin-T and creatine kinase (CK)-MB isoenzyme without any symptom after the administration of nivolumab, immune checkpoint inhibitor. The repeated 12-leads-electr
+    conclusion: Our report shows that some neoplastic cells contain cardiac- speciﬁc proteins and enzymes, which are released into the blood stream, and this release mimics the characteristics o f myocarditis when the immune checkpoint blockade has already been administered. Elevations of cardiac troponin-T and CK-
+
+[20] Social Sciences  |  THE FOURTH DIMENSION IN THE WORK OF SCULPTOR SARGIS BAGHDASARYAN: «WE ARE OUR MOUNTAINS»
+    abstract  : Despite the fact that the images of objects on the retina are two-dimensional, humans perceive the world as three-dimensional, thanks to the ability to perceive spatial depth through stereoscopic vision. The temporal dimension, combined with the three spatial ones, encompasses the entirety of our re
+    conclusion: Each work of art, like the paired sculpture "We Are Our Mountains", has its own space, simultaneously existing in the universe and in its enclosed microcosm. The concept of the work «We Are Our Mountains », both in the well -known piece by Grant Matevosyan and in the sculpture by Sargis Bagdasaryan,
+
+######################################################################
+WITHOUT conclusion: 20 random papers (of 856 eligible)
+######################################################################
+
+[1] Social Sciences  |  Recent trends in scientific publishing, and its evaluation criteria, Arab impact factor as a model, 
+    abstract  : ملخص: تتضمن الورقة عرض لندوة مركز تطوير التعليم الجامعي بجامعة أسيوط التي عقدت في شهر أكتوبر 2019م بعنوان الاتجاهات الحديثة في النشر العلمي ومعايير تقييمه: معامل التأثير العربي نموذجا، بهدف التعريف بواقع النشر العلمي خاصة الانتاج العلمي المنشور باللغة العربية، والجديد في مجال النشر العلمي في ظل النش
+
+[2] Engineering  |  Utilization of sugarcane bagasse waste by Aspergillus welwitchiae SVUAw9 for production, purificatio
+    abstract  : Aspergillus welwitschiae strain SVUAw9 was isolated from sugarcane bagasse and identified by the sequencing of the calmodulin (CaM) gene, was found to exhibit substantial cold-active xylanase activity in this study. Under solid-state fermentation conditions, the strain can utilize a range of agro-in
+
+[3] Engineering  |  Experimental analysis of a photovoltaic self-consumption system for the offices of a local company
+    abstract  : The article analyzes the prospect of a solution for the mutual interaction of a photovoltaic generator and the local electrical grid, within the context of electrifying the offices of a hydrocarbon storage facility. The idea is to examine the operational performance of a system that enables the maxi
+
+[4] Engineering  |  Investigations on a micro-scale solar chimney
+    abstract  : Solar chimney is a promising technology to convert solar thermal energy to electricity.This system is a combination of solar air heater and a central updraft tube to generate a solar energy induced convective flow of air to drive a turbine.A micro-scale model of such a system was installed for study
+
+[5] Arts and Humanities  |  Between one’s own culture and the target culture: the language teacher as intercultural mediator
+    abstract  : The relationship between language and culture is close, and there can be few topics more central to the teaching of English as a foreign language.What is the role of the teacher in providing information and input about a culture?Which culture(s) should be taught?This paper begins by reviewing the li
+
+[6] Arts and Humanities  |  Towards a Post-racial Art in the Black Atlantic: Latest News about a Narrative Postponement
+    abstract  : Over the past year, various major publications have focused on the racialist theories and beliefs which, from the 17th century to the 1960s, have lent substance to the Black Atlantic, and justified plantation-based and/or segregationist colonial systems in the name of egalitarian political ideals. T
+
+[7] Engineering  |  IoT Data Access via Email System using POP3 Protocol
+    abstract  : Internet of Things (IoT) is the set of technologies enabling the interconnection of objects by uniquely identifying them in thenetwork.These objects can be provided with sensors/actuators and can easily make information available or perform complex actions .For connecting these things, we need a com
+
+[8] Medicine  |  2298 Central autonomic network dysfunction implicated in alcohol-related intimate partner violence
+    abstract  : OBJECTIVES/SPECIFIC AIMS: Most incidents of partner violence occur when one or both partners have been drinking, however, the mechanism through which this association exists is unclear. The neural circuits that support self-regulation of emotion and social behavior, as well as autonomic influences o
+
+[9] Computer Science  |  SDGR-Net: A Spatiotemporally Decoupled Gated Residual Network for Robust Multi-State HDD Health Pred
+    abstract  : Accurate prediction of hard disk drive (HDD) health states is critical for enabling proactive data maintenance and ensuring data reliability in large-scale data centers. However, conventional models often suffer from semantic entanglement among heterogeneous SMART attributes and from the masking of 
+
+[10] Social Sciences  |  The Impact of Tourists’ Attitudes toward Technology on Decision Speed: Trust, Persuasiveness, and He
+    abstract  : Tourists hold different attitudes towards technology, and the different perceptions and subsequent impacts of these attitudes on online reviews are topics worthy of discussion. Therefore, this study focuses on how tourists' attitudes toward technology affect their decision speed, by developing a mod
+
+[11] Medicine  |  2010 upcoming meetings
+    abstract  : The spring/summer 2010 conference season provides ample opportunities to attend conferences that feature topics relevant to antibody research and development (R&D). Meetings such as these serve critical informational and educational functions, and are key networking opportunities. Locations are spre
+
+[12] Computer Science  |  Comparison of Geometric Features and Color Features for Face Recognition
+    abstract  : Face recognition plays an important role in the identity recognition system, the color and geometry feature has been claimed able to be used as parameter for face recognition. This study aims to analize the performance of geometric features, color features, and both of them on the human face using G
+
+[13] Engineering  |  EXPERIMENTAL INVESTIGATION OF PERFORMANCE AND COMBUSTION CHARACTERISTICS ON A SINGLE CYLINDER LHR EN
+    abstract  : In this study, for the first time, a nanoceramic Al2O3 was used as a coating material in the low heat rejection engine concept.Experiments were conducted on single cylinder, four stroke, water cooled, and direct injection diesel engine.First, the engine was tested at different load conditions withou
+
+[14] Arts and Humanities  |  Jazz Pianism in Context of Piano Performance Style Tendencies of 20 th Century
+    abstract  : DOI: https://doi.org/10.28925/2518-766X.201614045 The acticle is devoted to the development and style specifics of the jazz pianism in performing arts of the 20th century. It is an attempt to consider historic pre-conditions for the contemporary piano jazz image, special attention is paid to the ind
+
+[15] Social Sciences  |  Bypassing Developers: An Interview with Plan Común on Self-Commissioned Housing
+    abstract  : Founded in Chile in 2012, the now Paris-based practice Plan Común has become one of the most interesting practices working in the field of housing today. For years Plan Común has channeled its efforts into ﬁnding commissions and opportunities within an increasingly hostile market for truly affordabl
+
+[16] Computer Science  |  MOBILE SECURITY USING WI-FI SIGNAL STRENGTH
+    abstract  : Android is an open source full stack platform for developing applications for mobile phones.Android based smart phones as they are portable devices the vulnerability of theft exists.As for as security is concerned, cost is major issue where the cost of element is not so high, so a cost effective tec
+
+[17] Medicine  |  Jatrorrhizine Exhibits an Antitumor Effect Against Gefitinib‐resistant Non‐small Cell Lung Cancer vi
+    abstract  : Epidermal growth factor receptor (EGFR) L858R/T790 M mutation-mediated gefitinib resistance (GR) is a frequent dilemma in the treatment of non-small cell lung cancer (NSCLC). This study aimed to explore the effect of jatrorrhizine on treating GR NSCLC and its possible mechanism of action. Cell viabi
+
+[18] Arts and Humanities  |  The Political Economy of the Contemporary Media and Cultural Production
+    abstract  : Controlling the material and mental production, the ruling class is likely to keep reproducing the social relations and structure. By manipulating media and cultural systems, the ruling group constructs a dominating ideology and a desired hegemony, which help sustain the status quo. In this respect,
+
+[19] Arts and Humanities  |  Tanatologičeskie motivy «Strašnoj mesti» Nikolaja Gogolja v kontekste ètnokul'turnyh svjazej ukrainc
+    abstract  : This article deals with the description of the posthumous destiny of the dead in the horror story A Terrible Vengeance by Mykola Gogol. It describes the patrimonial cemetery of the sorcerer, where all his ancestors were buried. Their corpses rise from their graves, but the first local dead man, the 
+
+[20] Social Sciences  |  Can Strategies to Cope with Hazard Shocks be Explained by At-Risk Households’ Socioeconomic Asset Pr
+    abstract  : This article documents the results of an empirical investigation on the complex interplay between diverse coping mechanisms and the socioeconomic asset profiles of coastal households at risk. Focusing on household-level perceptions and responses to cyclone hazards, a case study was carried out in a 

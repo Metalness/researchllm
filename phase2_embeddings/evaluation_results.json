@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": "2026-10-05T13:57:05.136940",
+    "query_id": "patent:6035481",
+    "query_domain": "Patent: Human necessities (A46)",
+    "candidate_id": "patent:5087145",
+    "candidate_domain": "Patent: Operations and transport (B42)",
+    "representation": "mechanism",
+    "rank": 2,
+    "similarity": 0.7313214540481567,
+    "label": 0
+  },
+  {
+    "timestamp": "2026-10-05T13:58:51.661580",
+    "query_id": "patent:6035481",
+    "query_domain": "Patent: Human necessities (A46)",
+    "candidate_id": "patent:4518092",
+    "candidate_domain": "Patent: Human necessities (A45)",
+    "representation": "problem_mechanism",
+    "rank": 1,
+    "similarity": 0.6424936056137085,
+    "label": 0
+  },
+  {
+    "timestamp": "2026-10-05T13:59:04.432831",
+    "query_id": "patent:6035481",
+    "query_domain": "Patent: Human necessities (A46)",
+    "candidate_id": "patent:4279197",
+    "candidate_domain": "Patent: Operations and transport (B30)",
+    "representation": "problem_mechanism",
+    "rank": 2,
+    "similarity": 0.6420758962631226,
+    "label": 0
+  }
+]

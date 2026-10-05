@@ -1,5 +1,5 @@
 """
-Minimal client for the Kilo AI Gateway (OpenAI-compatible).
+Minimal Kilo AI Gateway client.
 
 Setup:
     pip install requests python-dotenv
@@ -10,30 +10,35 @@ Single key:
 Multiple keys:
     KILO_API_KEYS=key1,key2,key3
 
-Model:
+Default model:
     KILO_MODEL=<exact model id>
 
-Optional:
-    KILO_REASONING_EFFORT=low     (low | medium | high; parameter name unverified)
+Per-call models:
+    KILO_MODEL_CALL1=<model>
+    KILO_MODEL_CALL2=<model>
+
+Per-call reasoning:
+    KILO_REASONING_CALL1=false
+    KILO_REASONING_EFFORT_CALL1=low
+
+    KILO_REASONING_CALL2=true
+    KILO_REASONING_EFFORT_CALL2=medium
 
 Commands:
     python kilo_gateway.py models [filter]
     python kilo_gateway.py test
 
 Use from other scripts:
+
     from kilo_gateway import chat, chat_json
 
     text = chat("Say hi")
 
     text = chat(
         "Say hi",
-        api_key="specific-key"
-    )
-
-    data = chat_json(
-        system_prompt,
-        user_text,
-        api_key="specific-key"
+        model="some/model",
+        reasoning=True,
+        reasoning_effort="medium",
     )
 """
 
@@ -52,31 +57,63 @@ import dotenv
 # ENVIRONMENT
 # ============================================================
 
-# Always load .env from the same directory as this script.
-ENV_FILE = Path(__file__).resolve().parent / ".env"
+ENV_FILE = (
+    Path(__file__).resolve().parent
+    / ".env"
+)
 
 dotenv.load_dotenv(ENV_FILE)
 
 
 BASE = "https://api.kilo.ai/api/gateway"
 
-KEY = os.getenv("KILO_API_KEY")
-MODEL = os.getenv("KILO_MODEL")
+KEY = os.getenv(
+    "KILO_API_KEY"
+)
+
+MODEL = os.getenv(
+    "KILO_MODEL"
+)
 
 
 # ============================================================
 # CONFIG
 # ============================================================
 
-MAX_ATTEMPTS = 5
+MAX_ATTEMPTS = int(
+    os.getenv(
+        "KILO_MAX_ATTEMPTS",
+        "5",
+    )
+)
 
-# Maximum time allowed for one HTTP request.
-REQUEST_TIMEOUT = 45
+REQUEST_TIMEOUT = int(
+    os.getenv(
+        "KILO_REQUEST_TIMEOUT",
+        "45",
+    )
+)
 
-# Short delays because we rotate keys.
-NETWORK_RETRY_WAIT = 2
-RATE_LIMIT_WAIT = 2
-SERVER_ERROR_WAIT = 3
+NETWORK_RETRY_WAIT = float(
+    os.getenv(
+        "KILO_NETWORK_RETRY_WAIT",
+        "2",
+    )
+)
+
+RATE_LIMIT_WAIT = float(
+    os.getenv(
+        "KILO_RATE_LIMIT_WAIT",
+        "2",
+    )
+)
+
+SERVER_ERROR_WAIT = float(
+    os.getenv(
+        "KILO_SERVER_ERROR_WAIT",
+        "3",
+    )
+)
 
 
 # ============================================================
@@ -96,7 +133,7 @@ def get_api_keys():
 
     multi = os.getenv(
         "KILO_API_KEYS",
-        ""
+        "",
     ).strip()
 
     if multi:
@@ -116,7 +153,9 @@ def get_api_keys():
         keys = []
 
     # Remove duplicates while preserving order.
-    return list(dict.fromkeys(keys))
+    return list(
+        dict.fromkeys(keys)
+    )
 
 
 def _headers(api_key=None):
@@ -130,7 +169,8 @@ def _headers(api_key=None):
 
     if not key:
         raise RuntimeError(
-            "Set KILO_API_KEY or KILO_API_KEYS first."
+            "Set KILO_API_KEY "
+            "or KILO_API_KEYS first."
         )
 
     return {
@@ -147,6 +187,9 @@ def list_models(
     name_filter=None,
     api_key=None,
 ):
+    """
+    List models available through Kilo.
+    """
 
     keys = (
         [api_key]
@@ -156,7 +199,8 @@ def list_models(
 
     if not keys:
         raise RuntimeError(
-            "Set KILO_API_KEY or KILO_API_KEYS first."
+            "Set KILO_API_KEY "
+            "or KILO_API_KEYS first."
         )
 
     last = ""
@@ -165,26 +209,29 @@ def list_models(
 
         try:
 
-            r = requests.get(
+            response = requests.get(
                 f"{BASE}/models",
                 headers=_headers(key),
                 timeout=15,
             )
 
-            r.raise_for_status()
+            response.raise_for_status()
 
             ids = [
-                m["id"]
-                for m in r.json().get("data", [])
+                model["id"]
+                for model in response.json().get(
+                    "data",
+                    [],
+                )
             ]
 
             if name_filter:
 
                 ids = [
-                    i
-                    for i in ids
+                    model_id
+                    for model_id in ids
                     if name_filter.lower()
-                    in i.lower()
+                    in model_id.lower()
                 ]
 
             return sorted(ids)
@@ -194,7 +241,7 @@ def list_models(
             last = str(e)
 
             print(
-                f"  [gateway] models "
+                f"  [kilo] models "
                 f"key {attempt + 1}/{len(keys)} "
                 f"failed: {e}",
                 flush=True,
@@ -217,30 +264,54 @@ def chat(
     system=None,
     model=None,
     temperature=0.2,
-    max_tokens=1000,
+    max_tokens=4000,
     api_key=None,
+    reasoning=None,
+    reasoning_effort=None,
 ):
     """
-    Send one chat completion.
+    Send one Kilo chat completion.
 
-    If api_key is explicitly supplied:
-        only that key is used.
+    Parameters
+    ----------
+    user:
+        User prompt.
 
-    Otherwise:
-        rotate through KILO_API_KEYS / KILO_API_KEY
-        across retries.
+    system:
+        Optional system prompt.
 
-    Example:
+    model:
+        Optional model override.
 
-        KILO_API_KEYS=key1,key2,key3
+    temperature:
+        Sampling temperature.
 
-    Retry sequence:
+    max_tokens:
+        Maximum output tokens.
 
-        attempt 1 -> key1
-        attempt 2 -> key2
-        attempt 3 -> key3
-        attempt 4 -> key1
-        attempt 5 -> key2
+    api_key:
+        Explicit key. If omitted, configured keys rotate.
+
+    reasoning:
+        None:
+            Use normal/default behavior.
+
+        True:
+            Enable reasoning.
+
+        False:
+            Disable reasoning.
+
+    reasoning_effort:
+        low / medium / high
+
+    Important:
+
+    If the API returns finish_reason="length",
+    the request is NOT retried.
+
+    Retrying a deterministic token-limit failure wastes
+    time and normally produces the same failure.
     """
 
     model = model or MODEL
@@ -248,12 +319,11 @@ def chat(
     if not model:
 
         raise RuntimeError(
-            "Set KILO_MODEL "
-            "(see: python kilo_gateway.py models nemotron)."
+            "Set KILO_MODEL first."
         )
 
     # --------------------------------------------------------
-    # Determine keys
+    # Keys
     # --------------------------------------------------------
 
     if api_key:
@@ -267,7 +337,8 @@ def chat(
     if not keys:
 
         raise RuntimeError(
-            "Set KILO_API_KEY or KILO_API_KEYS first."
+            "Set KILO_API_KEY "
+            "or KILO_API_KEYS first."
         )
 
     # --------------------------------------------------------
@@ -288,6 +359,10 @@ def chat(
         "content": user,
     })
 
+    # --------------------------------------------------------
+    # Request body
+    # --------------------------------------------------------
+
     body = {
         "model": model,
         "messages": messages,
@@ -296,18 +371,75 @@ def chat(
     }
 
     # --------------------------------------------------------
-    # Optional reasoning
+    # Reasoning
     # --------------------------------------------------------
 
-    effort = os.getenv(
-        "KILO_REASONING_EFFORT"
-    )
+    if reasoning is True:
 
-    if effort:
+        effort = (
+            reasoning_effort
+            or os.getenv(
+                "KILO_REASONING_EFFORT",
+                "medium",
+            )
+        )
 
         body["reasoning"] = {
+            "enabled": True,
             "effort": effort,
         }
+
+    elif reasoning is False:
+
+        body["reasoning"] = {
+            "enabled": False,
+        }
+
+    else:
+
+        # Backwards-compatible behavior.
+        #
+        # If the caller doesn't explicitly specify reasoning,
+        # use the global KILO_REASONING_EFFORT setting.
+        effort = os.getenv(
+            "KILO_REASONING_EFFORT"
+        )
+
+        if effort:
+
+            body["reasoning"] = {
+                "effort": effort,
+            }
+
+    # --------------------------------------------------------
+    # Debug
+    # --------------------------------------------------------
+
+    print(
+        f"  [kilo] model={model}",
+        flush=True,
+    )
+
+    if "reasoning" in body:
+
+        print(
+            f"  [kilo] reasoning="
+            f"{body['reasoning']}",
+            flush=True,
+        )
+
+    else:
+
+        print(
+            "  [kilo] reasoning=default",
+            flush=True,
+        )
+
+    print(
+        f"  [kilo] max_tokens="
+        f"{body['max_tokens']}",
+        flush=True,
+    )
 
     # --------------------------------------------------------
     # Retry loop
@@ -317,22 +449,24 @@ def chat(
 
     for attempt in range(MAX_ATTEMPTS):
 
-        # Rotate through available keys.
-        key_index = attempt % len(keys)
+        key_index = (
+            attempt % len(keys)
+        )
 
         current_key = keys[key_index]
 
-        # Never print the actual API key.
         key_label = (
             f"key {key_index + 1}/{len(keys)}"
         )
 
         print(
-            f"  [gateway] "
+            f"  [kilo] "
             f"attempt {attempt + 1}/{MAX_ATTEMPTS} "
             f"using {key_label}",
             flush=True,
         )
+
+        start_time = time.time()
 
         # ----------------------------------------------------
         # HTTP REQUEST
@@ -340,31 +474,38 @@ def chat(
 
         try:
 
-            r = requests.post(
+            response = requests.post(
                 f"{BASE}/chat/completions",
-                headers=_headers(current_key),
+                headers=_headers(
+                    current_key
+                ),
                 json=body,
                 timeout=REQUEST_TIMEOUT,
             )
 
         except requests.RequestException as e:
 
+            elapsed = (
+                time.time() - start_time
+            )
+
             last = (
                 f"network error: {e}"
             )
 
             print(
-                f"  [gateway] "
+                f"  [kilo] "
                 f"{key_label} "
-                f"{last}",
+                f"network error after "
+                f"{elapsed:.1f}s: {e}",
                 flush=True,
             )
 
             if attempt < MAX_ATTEMPTS - 1:
 
                 print(
-                    f"  [gateway] "
-                    f"switching key in "
+                    f"  [kilo] "
+                    f"retrying in "
                     f"{NETWORK_RETRY_WAIT}s...",
                     flush=True,
                 )
@@ -375,13 +516,25 @@ def chat(
 
             continue
 
+        elapsed = (
+            time.time() - start_time
+        )
+
+        print(
+            f"  [kilo] "
+            f"{key_label} "
+            f"HTTP {response.status_code} "
+            f"after {elapsed:.1f}s",
+            flush=True,
+        )
+
         # ----------------------------------------------------
         # PARSE RESPONSE
         # ----------------------------------------------------
 
         try:
 
-            data = r.json()
+            data = response.json()
 
         except ValueError:
 
@@ -392,42 +545,87 @@ def chat(
         # ----------------------------------------------------
 
         if (
-            r.status_code == 200
+            response.status_code == 200
             and isinstance(data, dict)
             and data.get("choices")
         ):
 
-            msg = (
-                data["choices"][0]
-                .get("message")
+            choice = data["choices"][0]
+
+            finish_reason = (
+                choice.get(
+                    "finish_reason"
+                )
+            )
+
+            message = (
+                choice.get("message")
                 or {}
             )
 
-            content = msg.get("content")
+            content = message.get(
+                "content"
+            )
+
+            # ------------------------------------------------
+            # Normal content
+            # ------------------------------------------------
 
             if content:
 
+                print(
+                    f"  [kilo] "
+                    f"success: "
+                    f"{len(content)} chars, "
+                    f"finish_reason="
+                    f"{finish_reason}",
+                    flush=True,
+                )
+
                 return content
 
-            # Empty content.
+            # ------------------------------------------------
+            # TOKEN LIMIT
+            # ------------------------------------------------
+
+            if finish_reason == "length":
+
+                last = (
+                    "model reached max_tokens "
+                    f"({body['max_tokens']}) "
+                    "with no usable content"
+                )
+
+                print(
+                    f"  [kilo] "
+                    f"{key_label} "
+                    f"{last}",
+                    flush=True,
+                )
+
+                # DO NOT RETRY.
+                raise RuntimeError(
+                    "Kilo output hit "
+                    f"max_tokens={body['max_tokens']} "
+                    "before producing usable content. "
+                    "Increase max_tokens or reduce "
+                    "the requested reasoning/output."
+                )
+
+            # ------------------------------------------------
+            # OTHER EMPTY RESPONSE
+            # ------------------------------------------------
+
             last = (
                 "empty content, "
-                f"finish_reason="
-                f"{data['choices'][0].get('finish_reason')}"
+                f"finish_reason={finish_reason}"
             )
 
             print(
-                f"  [gateway] "
+                f"  [kilo] "
                 f"{key_label} "
                 f"{last}",
                 flush=True,
-            )
-
-            # Reasoning models may have consumed the
-            # entire token budget.
-            body["max_tokens"] = min(
-                body["max_tokens"] * 2,
-                32000,
             )
 
             if attempt < MAX_ATTEMPTS - 1:
@@ -440,36 +638,47 @@ def chat(
         # ERROR
         # ----------------------------------------------------
 
+        if isinstance(data, dict):
+
+            error_text = json.dumps(
+                data,
+                ensure_ascii=False,
+            )[:1000]
+
+        else:
+
+            error_text = (
+                response.text[:1000]
+            )
+
         last = (
-            f"HTTP {r.status_code}: "
-            f"{r.text[:500]}"
+            f"HTTP {response.status_code}: "
+            f"{error_text}"
         )
 
         print(
-            f"  [gateway] "
+            f"  [kilo] "
             f"{key_label} "
             f"{last}",
             flush=True,
         )
 
         # ----------------------------------------------------
-        # AUTH / REQUEST ERRORS
+        # AUTH ERRORS
         # ----------------------------------------------------
 
-        if r.status_code in (
+        if response.status_code in (
             401,
             403,
         ):
 
-            # These may be key-specific.
-            # Try the next key.
             if (
                 len(keys) > 1
                 and attempt < MAX_ATTEMPTS - 1
             ):
 
                 print(
-                    f"  [gateway] "
+                    f"  [kilo] "
                     f"{key_label} rejected; "
                     f"switching key.",
                     flush=True,
@@ -481,8 +690,11 @@ def chat(
 
             break
 
-        # 400 / 404 are generally request/model errors.
-        if r.status_code in (
+        # ----------------------------------------------------
+        # BAD REQUEST / NOT FOUND
+        # ----------------------------------------------------
+
+        if response.status_code in (
             400,
             404,
         ):
@@ -494,15 +706,16 @@ def chat(
         # ----------------------------------------------------
 
         rate_limited = (
-            r.status_code == 429
+            response.status_code == 429
             or '"code":429'
-            in r.text[:400].replace(" ", "")
+            in response.text[:400]
+            .replace(" ", "")
         )
 
         if rate_limited:
 
             print(
-                f"  [gateway] "
+                f"  [kilo] "
                 f"{key_label} rate limited; "
                 f"switching key.",
                 flush=True,
@@ -523,7 +736,7 @@ def chat(
         if attempt < MAX_ATTEMPTS - 1:
 
             print(
-                f"  [gateway] "
+                f"  [kilo] "
                 f"server error; "
                 f"switching key in "
                 f"{SERVER_ERROR_WAIT}s...",
@@ -539,7 +752,7 @@ def chat(
     # --------------------------------------------------------
 
     raise RuntimeError(
-        f"Gateway failed after "
+        f"Kilo gateway failed after "
         f"{MAX_ATTEMPTS} attempts. "
         f"Last: {last}"
     )
@@ -552,41 +765,36 @@ def chat(
 def chat_json(
     system,
     user,
-    **kw
+    **kwargs,
 ):
     """
     Ask for JSON and parse it.
 
-    Tolerates:
-
-        ```json
-        {...}
-        ```
-
-    and stray text around the JSON object.
-
-    Returns:
-        dict
-        or None if parsing fails.
+    Accepts the same keyword arguments as chat().
     """
 
     text = chat(
         user,
         system=system,
-        **kw,
+        **kwargs,
     )
 
     text = re.sub(
         r"```(?:json)?",
         "",
         text,
+        flags=re.IGNORECASE,
     ).strip()
 
     start = text.find("{")
     end = text.rfind("}")
 
     if start == -1 or end == -1:
-        return None
+
+        raise ValueError(
+            "No JSON object found in response:\n"
+            + text[:2000]
+        )
 
     try:
 
@@ -594,9 +802,12 @@ def chat_json(
             text[start:end + 1]
         )
 
-    except json.JSONDecodeError:
+    except json.JSONDecodeError as e:
 
-        return None
+        raise ValueError(
+            "Could not parse JSON response:\n"
+            + text[:3000]
+        ) from e
 
 
 # ============================================================
@@ -605,27 +816,42 @@ def chat_json(
 
 if __name__ == "__main__":
 
-    cmd = (
+    command = (
         sys.argv[1]
         if len(sys.argv) > 1
         else "test"
     )
 
-    if cmd == "models":
+    if command == "models":
 
-        flt = (
+        name_filter = (
             sys.argv[2]
             if len(sys.argv) > 2
             else None
         )
 
-        for mid in list_models(flt):
-            print(mid)
+        for model_id in list_models(
+            name_filter
+        ):
+            print(model_id)
 
-    else:
+    elif command == "test":
 
         print(
             chat(
                 "Reply with exactly: gateway ok"
             )
+        )
+
+    else:
+
+        print("Usage:")
+
+        print(
+            "  python kilo_gateway.py "
+            "models [filter]"
+        )
+
+        print(
+            "  python kilo_gateway.py test"
         )

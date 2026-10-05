@@ -7,7 +7,7 @@ import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModel
 
-from openrouter_gateway import chat
+from kilo_gateway import chat
 
 
 # ============================================================
@@ -488,8 +488,7 @@ def embed_texts(
         )
 
         embeddings.append(
-            pooled.cpu().numpy()
-        )
+            pooled.float().cpu().numpy()        )
 
     return np.vstack(embeddings).astype(
         "float32"
@@ -766,7 +765,7 @@ Produce one coherent solution.
     result = ask_json(
         prompt,
         PASS2_SYSTEM,
-        max_tokens=1400,
+        max_tokens=10000,
         model=CALL2_MODEL,
         reasoning=CALL2_REASONING,
         reasoning_effort=CALL2_REASONING_EFFORT,
